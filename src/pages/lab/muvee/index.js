@@ -34,7 +34,7 @@ const IndexPage = () => (
       <p>I am actively developing muvee, and use it in tandem with my Netflix subscription.  It's gotten to the point where I very rarely have to manually intervene to correct unexpected behaviour. I love it, passionately.</p>
     </ReadableSection>
     <ReadableSection>
-      <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout" />
+      <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
       <AnnotatedImage src={img_detailed_movies_page} caption="Detailed movie view page, when movie is sourced" />
       <AnnotatedImage src={img_quick_search} caption="Hit 't' to quick search from any index" />
       <AnnotatedImage src={img_player} caption="The player, playing an episode of Rick and Morty" />

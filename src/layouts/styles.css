@@ -47,8 +47,14 @@ h3 {
   color: rgb(123, 123, 123);
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .main-content {
-  padding-top: 5rem;
+  padding: 4rem 0;
+  flex: 1 0 auto;
 }
 
 @media screen and (min-width: 1800px) {
@@ -65,11 +71,11 @@ h3 {
   }
 }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 2050px) {
   .main-container {
     display: grid;
-    grid-template-columns: 200px auto;
-    grid-template-rows: 50vh 50vh auto;
+    grid-template-columns: 250px auto;
+    grid-template-rows: 75vh 25vh auto;
     grid-template-areas:
       "header main"
       "footer main"
@@ -81,11 +87,13 @@ h3 {
     margin: 0;
     display: flex;
     align-items: center;
+    background: #333;
+    border: 0;
   }
   .primary-footer {
     grid-area: footer;
     position: sticky;
-    top: 50%;
+    top: 75%;
     left: 0;
     margin: 0;
     display: flex;

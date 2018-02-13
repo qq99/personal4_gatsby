@@ -8,7 +8,7 @@ import './footer.css';
 const Footer = () => (
   <footer className="primary-footer">
     <ReadableSection>
-      <Nav style={{fontSize: '2em'}}>
+      <Nav>
         <a className='iconal external different-context' href='https://github.com/qq99' target='_blank' title='Github'>
           <i className='fa fa-github'></i>
         </a>
