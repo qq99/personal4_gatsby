@@ -57,12 +57,12 @@ h3 {
   flex: 1 0 auto;
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1440px) {
   .testergrid {
     display: grid;
-    max-width: 100rem;
+    max-width: 80rem;
     margin: auto;
-    grid-template-columns: 50rem 50rem;
+    grid-template-columns: 50rem 30rem;
     grid-template-rows: auto;
     align-items: start;
   }
@@ -71,10 +71,11 @@ h3 {
   }
 }
 
-@media screen and (min-width: 2050px) {
+/* 1440 + 252px */
+@media screen and (min-width: 1692px) {
   .main-container {
     display: grid;
-    grid-template-columns: 250px auto;
+    grid-template-columns: 252px auto;
     grid-template-rows: 75vh 25vh auto;
     grid-template-areas:
       "header main"
