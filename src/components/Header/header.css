@@ -1,0 +1,9 @@
+.primary-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #efefef;
+}

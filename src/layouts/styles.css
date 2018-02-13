@@ -1,0 +1,45 @@
+code, pre {
+  font-family: monospace;
+  font-size: 1.4em;
+}
+
+html {
+  line-height: 1.75em;
+  font-size: 18px;
+  font-family: "Fira Sans", Ubuntu, Roboto, "Helvetica Neue", Helvetica, arial, freesans, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #222;
+  font-size: 1em;
+}
+
+a {
+  color: rgb(41, 157, 221);
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+a:visited {
+  color: rgb(41, 157, 221);
+}
+a:hover {
+  color: hotpink;
+}
+
+h1, h2, h3, h4, h5, p {
+  text-align: justify;
+  margin: 2rem 0;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: rgb(123, 123, 123);
+}
+
+.main-content {
+  padding-top: 5rem;
+}
