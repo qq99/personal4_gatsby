@@ -5,7 +5,7 @@ import ReadableSection from '../ReadableSection'
 import './nav.css'
 
 const Nav = (props) => (
-  <nav className="navigation">
+  <nav className="navigation" {...props}>
     {props.children}
   </nav>
 )

@@ -1,11 +1,14 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import ReadableSection from '../ReadableSection'
+import Nav from '../Nav'
+
+import './footer.css';
 
 const Footer = () => (
-  <footer>
+  <footer className="primary-footer">
     <ReadableSection>
-      <p>
+      <Nav style={{fontSize: '2em'}}>
         <a className='iconal external different-context' href='https://github.com/qq99' target='_blank' title='Github'>
           <i className='fa fa-github'></i>
         </a>
@@ -21,7 +24,7 @@ const Footer = () => (
         <a className='iconal external different-context' href='http://ca.linkedin.com/in/anthonycameron/' target='_blank' title='LinkedIn'>
           <i className='fa fa-linkedin'></i>
         </a>
-      </p>
+      </Nav>
     </ReadableSection>
   </footer>
 )

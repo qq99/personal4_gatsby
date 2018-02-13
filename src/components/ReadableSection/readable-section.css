@@ -1,6 +1,9 @@
 .readable-section {
   width: 50rem;
   max-width: 100%;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 2rem;
+}
+.readable-section :first-child {
+  margin-top: 0;
 }

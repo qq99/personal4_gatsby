@@ -1,0 +1,15 @@
+.annotated-image {
+  margin-bottom: 2rem;
+}
+
+.annotated-image img {
+  margin-bottom: 0;
+  display: block;
+}
+
+.annotated-image figcaption {
+  padding: 1rem;
+  text-align: center;
+  font-style: italic;
+  background: #efefef;
+}
