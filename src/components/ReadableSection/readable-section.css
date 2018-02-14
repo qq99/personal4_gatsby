@@ -4,6 +4,6 @@
   margin: 0 auto;
   padding: 0 2rem;
 }
-.readable-section :first-child {
+.readable-section > :first-child {
   margin-top: 0;
 }

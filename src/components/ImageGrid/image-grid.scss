@@ -1,0 +1,12 @@
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.image-grid-item {
+  margin: 0.5rem;
+  img {
+    margin: 0;
+  }
+}

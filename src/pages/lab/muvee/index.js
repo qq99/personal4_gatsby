@@ -3,17 +3,18 @@ import Link from 'gatsby-link'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
 
-import img_movies_index from './movies-index.jpeg'
-import img_detailed_movies_page from './detailed-movies-page.jpeg'
-import img_quick_search from './movies-quick-search.jpeg'
-import img_player from './player.jpeg'
-import img_series_index from './series-index.jpeg'
-import img_series_show from './series-show-episode-details.jpeg'
+import img_movies_index from './img/movies-index.jpeg'
+import img_detailed_movies_page from './img/detailed-movies-page.jpeg'
+import img_quick_search from './img/movies-quick-search.jpeg'
+import img_player from './img/player.jpeg'
+import img_series_index from './img/series-index.jpeg'
+import img_series_show from './img/series-show-episode-details.jpeg'
 
 const IndexPage = () => (
-  <div className="testergrid">
+  <div className="two-column-grid">
     <ReadableSection>
-      <h1>μv (aka muvee)</h1>
+      <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
+      <h1 className="page-title">μv (aka muvee)</h1>
       <h3>What is it?</h3>
       <p>muvee is something like Netflix, but run on a server from your own home. I created it to be an open source alternative to Plex. It can attempt to reach out to the Internet to find copies of media that you already legally own, but do not yet possess digital backups thereof.</p>
       <p>muvee can control your <a href="http://www2.meethue.com/en-ca/" target="_blank">Philips Hue</a> light bulbs, dimming them when playback starts, and brightening them when playback is paused. There's even rudimentary support for copying hues from frames of playing video for added ambiance.</p>
@@ -34,7 +35,6 @@ const IndexPage = () => (
       <p>I am actively developing muvee, and use it in tandem with my Netflix subscription.  It's gotten to the point where I very rarely have to manually intervene to correct unexpected behaviour. I love it, passionately.</p>
     </ReadableSection>
     <ReadableSection>
-      <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
       <AnnotatedImage src={img_detailed_movies_page} caption="Detailed movie view page, when movie is sourced" />
       <AnnotatedImage src={img_quick_search} caption="Hit 't' to quick search from any index" />
       <AnnotatedImage src={img_player} caption="The player, playing an episode of Rick and Morty" />

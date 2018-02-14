@@ -4,6 +4,7 @@ import ReadableSection from '../components/ReadableSection'
 
 const IndexPage = () => (
   <ReadableSection>
+    <h1 className="page-title">Musings, really.</h1>
     <p>I don't want to hear, "philosophy is useless".</p>
     <p>I favour determinism, and that given the initial state and a set of rules, we could compute the entire state history of the universe. This is impossible from within the universe we wish to simulate. That is to say, I believe the universe can be described by a relatively compressed closed form system, whilst our everday happenings are just emergent phenomena of the decompression and computation of the system. I believe this entails there is no such thing as free will, and this brings me peace.</p>
     <p>My ultimate academic goal is to understand myself and my environment. This will be a never ending quest that I very much look forward to. My applied goal is to create a computational intelligence. By this, I think I mean hard Artificial Intelligence. I want to create a machine that actually thinks, rather than gives the appearance of thinking. I think that the term "AI" in popular vernacular doesn't describe this concept well at all.</p>

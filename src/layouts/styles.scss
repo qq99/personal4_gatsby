@@ -44,8 +44,16 @@ figure, img {
 }
 
 h1, h2, h3, h4, h5, p {
-  text-align: justify;
   margin: 2rem 0;
+}
+p {
+  text-align: justify;
+}
+
+.page-title {
+  font-weight: 200;
+  font-size: 3em;
+  font-style: italic;
 }
 
 h3 {
@@ -66,7 +74,7 @@ h3 {
 }
 
 @media screen and (min-width: 80*$font-size) {
-  .testergrid {
+  .two-column-grid {
     display: grid;
     max-width: 80rem;
     margin: auto;
@@ -74,7 +82,7 @@ h3 {
     grid-template-rows: auto;
     align-items: start;
   }
-  .testergrid > * {
+  .two-column-grid > * {
     align-self: stretch;
   }
 }
