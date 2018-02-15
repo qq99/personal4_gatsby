@@ -15,12 +15,14 @@ const IndexPage = () => (
         title='muvee'
         img={img_muvee}
         to='/lab/muvee'
+        status='Not under active development'
         description='This project is something like Netflix, but run on a server in your own home. It aims to be an open source alternative to Plex.'>
       </LabFeature>
       <LabFeature
         title='WebGL SRPG Engine'
         img={img_srpg}
         to='/lab/webgl-srpg-engine'
+        status='Done/Dead'
         description='A university project, created for CS488 (Introduction to Computer Graphics) during Fall 2011 at the University of Waterloo as a final project.' />
       <LabFeature
         title='muvee'

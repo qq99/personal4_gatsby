@@ -12,6 +12,9 @@ const LabFeature = (props) => (
     <div className='lab-description'>
       <h1>{props.title}</h1>
       <p>{props.description}</p>
+      <p style={{
+        display: props.status ? 'block' : 'none',
+      }}>Status: {props.status}</p>
       <p>
         <Link to={props.to}>Learn more...</Link>
       </p>
