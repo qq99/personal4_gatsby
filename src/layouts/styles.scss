@@ -56,7 +56,7 @@ figure, img {
 }
 
 h1, h2, h3, h4, h5, p {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 p {
   text-align: justify;
@@ -92,6 +92,34 @@ h3 {
 }
 .page-content {
   padding: 2rem 0;
+}
+
+.lab-feature {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+
+  margin-right: -2rem;
+  > * {
+    margin-right: 2rem;
+  }
+
+  .lab-image {
+    a > * {
+      margin-bottom: 1rem;
+    }
+    flex: 1 0 auto;
+    flex-basis: 20rem;
+    margin-right: 2rem;
+  }
+  .lab-description {
+    flex: 1 1 auto;
+    flex-basis: 20rem;
+    margin-right: 2rem;
+    > :first-child {
+      margin-top: 0;
+    }
+  }
 }
 
 @media screen and (min-width: 80*$font-size) {

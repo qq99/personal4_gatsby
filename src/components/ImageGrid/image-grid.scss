@@ -1,11 +1,14 @@
 .image-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .image-grid-item {
-  margin: 0.5rem;
+  margin: 1rem;
+  > * {
+    margin: 0;
+  }
   img {
     margin: 0;
   }
