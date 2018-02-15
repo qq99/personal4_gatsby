@@ -1,3 +1,6 @@
+@import './topography.scss';
+
+$background: white;
 $link-color: rgb(41, 157, 221);
 $link-color-focus: hotpink;
 $font-size: 18px;
@@ -11,6 +14,7 @@ code, pre {
 
 html, body {
   font-size: $font-size;
+  background: $background;
 }
 
 html {
@@ -37,6 +41,14 @@ a {
   &:hover {
     color: $link-color-focus;
   }
+
+  &.selected {
+    color: $font-color;
+  }
+}
+
+.primary-header, .primary-footer {
+  z-index: 1;
 }
 
 figure, img {
@@ -55,6 +67,11 @@ p {
   font-size: 3em;
   font-style: italic;
 }
+.page-tagline {
+  color: lighten($font-color, 30%);
+  font-size: 0.8em;
+  margin-top: -1.5em;
+}
 
 h3 {
   font-size: 0.9em;
@@ -69,8 +86,12 @@ h3 {
   min-height: 100vh;
 }
 .main-content {
-  padding: 2rem 0;
+  // padding: 2rem 0;
   flex: 1 0 auto;
+  position: relative;
+}
+.page-content {
+  padding: 2rem 0;
 }
 
 @media screen and (min-width: 80*$font-size) {
@@ -104,8 +125,10 @@ h3 {
     margin: 0;
     display: flex;
     align-items: center;
-    background: #333;
     border: 0;
+    background: #fbfbff;
+    @include topography($link-color, 0.1);
+    box-shadow: inset -1px -1px 5px rgba(0,0,0,0.1);
   }
   .primary-footer {
     grid-area: footer;
@@ -115,6 +138,7 @@ h3 {
     margin: 0;
     display: flex;
     align-items: center;
+    @include topography($link-color, 0.1);
   }
   .main-content {
     grid-area: main;

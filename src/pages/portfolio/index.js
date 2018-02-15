@@ -1,7 +1,9 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import StandardPage from '../../components/StandardPage'
 import ReadableSection from '../../components/ReadableSection'
 import ImageGrid from '../../components/ImageGrid'
+import AnnotatedImage from '../../components/AnnotatedImage'
 
 import img_tile_ab from './img/tile_ab.jpg';
 import img_tile_apwan from './img/tile_apwan.jpg';
@@ -20,11 +22,11 @@ import img_tile_visum from './img/tile_visum.jpg';
 import './portfolio.scss';
 
 const IndexPage = () => (
-  <div>
+  <StandardPage>
     <ReadableSection>
       <h1>Front-end Work</h1>
       <p>I specialize in front-end development, and I believe I can make any design a reality. I'm not a designer by trade, but I like to dabble and design via CSS.</p>
-      <p>For many of these projects, I was the sole developer. For a few, I worked with my good friend and colleague Kaizhi Wei.</p>
+      <p>For many of these projects, I was the sole developer. For a few, I worked with my good friend and colleague <a href="http://kaizhiwei.com/" target="_blank">Kaizhi Wei</a>.</p>
       <p>Generally, the main focus was PSD2HTML. Some were flat sites, others were driven by WordPress. I used HAML and SASS were used for rapid prototyping, and image spritesheets whenever applicable.</p>
       <p>Many sites had needed custom widgets. I've coded dozens of custom slideshows in my time, interactive maps, and several full-spread responsive image-based landing pages.</p>
       <p>I'm experienced with integration of external services – yelp, Facebook, iHomeFinder, and other 3rd party weather services.</p>
@@ -32,21 +34,21 @@ const IndexPage = () => (
     </ReadableSection>
     <ReadableSection>
       <ImageGrid>
-        <img src={img_tile_solage}/>
-        <img src={img_tile_solhotel}/>
-        <img src={img_tile_ab}/>
-        <img src={img_tile_apwan}/>
-        <img src={img_tile_e52}/>
-        <img src={img_tile_hannah}/>
-        <img src={img_tile_hklane}/>
-        <img src={img_tile_jerome}/>
-        <img src={img_tile_jwilliams}/>
-        <img src={img_tile_pd}/>
-        <img src={img_tile_shirtsbyme}/>
-        <img src={img_tile_visum}/>
+        <AnnotatedImage src={img_tile_solage}/>
+        <AnnotatedImage src={img_tile_solhotel}/>
+        <AnnotatedImage src={img_tile_ab}/>
+        <AnnotatedImage src={img_tile_apwan}/>
+        <AnnotatedImage src={img_tile_e52}/>
+        <AnnotatedImage src={img_tile_hannah}/>
+        <AnnotatedImage src={img_tile_hklane}/>
+        <AnnotatedImage src={img_tile_jerome}/>
+        <AnnotatedImage src={img_tile_jwilliams}/>
+        <AnnotatedImage src={img_tile_pd}/>
+        <AnnotatedImage src={img_tile_shirtsbyme}/>
+        <AnnotatedImage src={img_tile_visum}/>
       </ImageGrid>
     </ReadableSection>
-  </div>
+  </StandardPage>
 );
 
 export default IndexPage

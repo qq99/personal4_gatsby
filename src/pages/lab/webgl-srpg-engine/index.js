@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
 
@@ -9,10 +10,11 @@ import img_srpg3 from './img/srpg3.png'
 import img_srpg4 from './img/srpg4.png'
 
 const IndexPage = () => (
-  <div className="two-column-grid">
+  <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedImage src={img_srpg1} caption="Terrain generated from Perlin noise" />
       <h1 className="page-title">WebGL Strategy RPG Engine</h1>
+      <p className="page-tagline">5 Dec, 2011</p>
       <h3>Executive Summary</h3>
       <p>
         Created for CS488 (Introduction to Computer Graphics) during Fall 2011 at the University of Waterloo as a final project.  This marks the second
@@ -35,9 +37,9 @@ const IndexPage = () => (
     <ReadableSection>
       <AnnotatedImage src={img_srpg2} caption="Sprite shaders, L-system 'trees'" />
       <AnnotatedImage src={img_srpg3} />
-      <AnnotatedImage src={img_srpg4} caption="Water: a rectangular mesh, positions offset by sin() and perturbed with Perlin noise" />
+      <AnnotatedImage src={img_srpg4} />
     </ReadableSection>
-  </div>
+  </StandardPage>
 );
 
 export default IndexPage

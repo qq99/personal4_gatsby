@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
 
@@ -11,10 +12,16 @@ import img_series_index from './img/series-index.jpeg'
 import img_series_show from './img/series-show-episode-details.jpeg'
 
 const IndexPage = () => (
-  <div className="two-column-grid">
+  <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
       <h1 className="page-title">μv (aka muvee)</h1>
+      <p className="page-tagline">2 Feb, 2013</p>
+      <h3>The goods</h3>
+      <ul>
+        <li><a href="https://github.com/qq99/muvee" target="_blank" title="muvee on GitHub">Code</a></li>
+        <li><a href="https://www.youtube.com/watch?v=1tevKG6u1qM" target="_blank">YouTube video of a recent revision</a></li>
+      </ul>
       <h3>What is it?</h3>
       <p>muvee is something like Netflix, but run on a server from your own home. I created it to be an open source alternative to Plex. It can attempt to reach out to the Internet to find copies of media that you already legally own, but do not yet possess digital backups thereof.</p>
       <p>muvee can control your <a href="http://www2.meethue.com/en-ca/" target="_blank">Philips Hue</a> light bulbs, dimming them when playback starts, and brightening them when playback is paused. There's even rudimentary support for copying hues from frames of playing video for added ambiance.</p>
@@ -41,7 +48,7 @@ const IndexPage = () => (
       <AnnotatedImage src={img_series_index} caption="Series index page, poster layout" />
       <AnnotatedImage src={img_series_show} caption="Detailed series page, viewing 2 episodes in detail" />
     </ReadableSection>
-  </div>
+  </StandardPage>
 );
 
 export default IndexPage
