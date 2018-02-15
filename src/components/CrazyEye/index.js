@@ -2,6 +2,9 @@ import React from 'react'
 
 import fragment_shader from 'raw-loader!./shader.frag'
 import vertex_shader from 'raw-loader!./shader.vert'
+import fallback from './crazyeye.png';
+
+import './canvas.scss';
 
 const perlin = new Uint8Array([151,160,137,91,90,15,
   131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
@@ -19,27 +22,41 @@ const perlin = new Uint8Array([151,160,137,91,90,15,
 
 // http://www.hugodaniel.pt/posts/2016-06-17-react-redux-canvas.html
 class Canvas extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      failure: false
+    };
+  }
+
   componentDidMount() {
     const canvas = this.refs.canvas;
 
-    let gl;
-    gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true })
-    gl.viewportWidth = canvas.width;
-    gl.viewportHeight = canvas.height;
-    this.gl = gl;
+    try {
+      let gl;
+      gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true })
+      gl.viewportWidth = canvas.width;
+      gl.viewportHeight = canvas.height;
+      this.gl = gl;
 
-    const shaderProgram = this.compileAndLinkShaderProgram();
- 
-    gl.useProgram(shaderProgram);
+      const shaderProgram = this.compileAndLinkShaderProgram();
 
-    this.props.onWebgl(canvas, gl, shaderProgram);
+      if (shaderProgram) {
+        gl.useProgram(shaderProgram);
+        this.props.onWebgl(canvas, gl, shaderProgram);
+      } else {
+        this.setState({failure: true});
+      }
+    } catch (e) {
+      this.setState({failure: true});
+    }
   }
 
   compileAndLinkShaderProgram() {
     console.log("Initializing shaders...");
     const { shaders } = this.props;
     const gl = this.gl;
-    
+
     const shaderProgram = gl.createProgram();
 
 
@@ -57,7 +74,7 @@ class Canvas extends React.Component {
       gl.compileShader(shader);
 
       if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        alert(gl.getShaderInfoLog(shader));
+        console.log(gl.getShaderInfoLog(shader));
         return null;
       } else {
         gl.attachShader(shaderProgram, shader);
@@ -65,9 +82,9 @@ class Canvas extends React.Component {
     });
 
     gl.linkProgram(shaderProgram);
-
     if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
-      alert("Could not initialise shaders");
+      console.log("Could not link shaders");
+      return null;
     } else {
       console.log("Linked shaders...");
     }
@@ -77,15 +94,13 @@ class Canvas extends React.Component {
 
   render() {
     return (
-      <div className="canvas-container" style={{
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        overflow: 'hidden',
-      }}>
+      <div className="canvas-container">
+        <div className="fallback" style={{
+          backgroundImage: `url('${fallback}')`,
+          display: this.state.failure ? 'block' : 'none',
+        }}/>
         <canvas ref="canvas" style={{
-          width: '100%',
-          height: '100%',
+          display: this.state.failure ? 'none' : 'block',
         }} />
       </div>
     )
@@ -102,7 +117,7 @@ class CrazyEye extends React.Component {
     this.paused = false;
     window.addEventListener('resize', this.resizeCanvas.bind(this));
   }
-  
+
   componentWillUnmount() {
     this.paused = true;
     window.removeEventListener('resize', this.resizeCanvas.bind(this));
@@ -175,7 +190,7 @@ class CrazyEye extends React.Component {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, 256, 1, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, perlin);
     this.perlinTexture = perlinTexture;
-    
+
     var g = new Uint8Array([1,1,0,    -1,1,0,    1,-1,0,    -1,-1,0,
                             1,0,1,    -1,0,1,    1,0,-1,    -1,0,-1,
                             0,1,1,    0,-1,1,    0,1,-1,    0,-1,-1,
@@ -188,7 +203,6 @@ class CrazyEye extends React.Component {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 16, 1, 0, gl.RGB, gl.UNSIGNED_BYTE, g);
     this.p_gradient = p_gradient;
-    console.log('onWebgl');
 
     this.resizeCanvas();
     this.time = 0.0;
@@ -245,11 +259,9 @@ class CrazyEye extends React.Component {
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
     gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
-  }  
+  }
 
   render() {
-    if (this.state.ctx) { this.renderWebgl(); }
-
     return (
       <Canvas
         shaders={[{
