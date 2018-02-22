@@ -9,6 +9,7 @@ import img_srpg from './lab/webgl-srpg-engine/img/srpg1.png';
 import img_echoplexus from './lab/echoplexus/img/echoplexus-latest.png';
 import img_background_bumps from './lab/webgl-background-bump-mapping/img/background-bumps.jpg'
 import img_perlin from './lab/animating-functions-of-improved-3d-perlin-noise/img/gpu-perlin4.png';
+import img_raytracer from './lab/cs488-raytracer/img/final_scene.png';
 
 const IndexPage = () => (
   <StandardPage>
@@ -44,8 +45,8 @@ const IndexPage = () => (
         description="In this experiment, I made a quick port of Ken Perlin's classical noise in 3 dimensions. Due to its continuity properties, we can take a 2D cross-section and step through the 3rd dimension in time. The end result is a continuous animation." />
       <LabFeature
         title='CS488 Ray-tracer'
-        img={img_muvee}
-        to='/lab/muvee'
+        img={img_raytracer}
+        to='/lab/cs488-raytracer'
         description='A ray-tracer with a focus on various material properties.' />
     </ReadableSection>
   </StandardPage>
