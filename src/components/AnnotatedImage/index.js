@@ -4,7 +4,7 @@ import './annotated-image.css';
 
 const AnnotatedImage = (props) => (
   <figure className="annotated-image">
-    <img src={props.src} className="navigation"/>
+    <img src={props.src} />
     <figcaption style={{display: props.caption ? 'block' : 'none'}}>{props.caption}</figcaption>
   </figure>
 )
