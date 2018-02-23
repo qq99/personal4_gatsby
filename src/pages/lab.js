@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 import StandardPage from '../components/StandardPage'
 import ReadableSection from '../components/ReadableSection'
 import LabFeature from '../components/LabFeature'
@@ -13,6 +14,7 @@ import img_raytracer from './lab/cs488-raytracer/img/final_scene.png';
 
 const IndexPage = () => (
   <StandardPage>
+    <Helmet title="Lab - Anthony Cameron"/>
     <ReadableSection wide>
       <h1 className="page-title">Lab</h1>
       <LabFeature

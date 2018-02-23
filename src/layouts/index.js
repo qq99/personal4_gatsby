@@ -10,10 +10,10 @@ import './styles.scss'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Develop: Anthony Cameron"
+      title="Anthony Cameron"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'author', content: 'Anthony Cameron' },
+        { name: 'description', content: 'Everything you need to know about Anthony Cameron: A collection of personal projects, featuring WebGL, GLSL shaders, JavaScript, C++.  A sample of my portfolio.  My resume.  My philosophy.' },
         { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       ]}
     >

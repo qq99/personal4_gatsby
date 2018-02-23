@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+
 import StandardPage from '../../components/StandardPage'
 import ReadableSection from '../../components/ReadableSection'
 import ImageGrid from '../../components/ImageGrid'
@@ -24,6 +26,7 @@ import './portfolio.scss';
 
 const IndexPage = () => (
   <StandardPage>
+    <Helmet title="Portfolio - Anthony Cameron"/>
     <ReadableSection>
       <Typography.PageTitle>Front-end Work</Typography.PageTitle>
       <p>I specialize in front-end development, and I believe I can make any design a reality. I'm not a designer by trade, but I like to dabble and design via CSS. I like to think I have an eye for aesthetics.</p>

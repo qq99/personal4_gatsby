@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+
 import StandardPage from '../components/StandardPage'
 import ReadableSection from '../components/ReadableSection'
 import Typography from '../components/Typography'
@@ -7,6 +9,7 @@ import Resume from '../components/Resume'
 
 const IndexPage = () => (
   <StandardPage>
+    <Helmet title="Resume - Anthony Cameron"/>
     <ReadableSection>
       <Typography.PageTitle>Hi, I'm Anthony Cameron</Typography.PageTitle>
       <section id='title'>

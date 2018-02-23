@@ -1,11 +1,14 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+
 import StandardPage from '../components/StandardPage'
 import ReadableSection from '../components/ReadableSection'
 import Typography from '../components/Typography';
 
 const IndexPage = () => (
   <StandardPage>
+    <Helmet title="Philosophy - Anthony Cameron"/>
     <ReadableSection>
       <Typography.PageTitle>Musings, really.</Typography.PageTitle>
       <p>I don't want to hear, "philosophy is useless".</p>
