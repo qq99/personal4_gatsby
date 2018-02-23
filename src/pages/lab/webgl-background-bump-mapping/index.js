@@ -5,6 +5,7 @@ import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
+import AnnotatedCanvas from '../../../components/AnnotatedCanvas'
 import BackgroundBumps from '../../../components/BackgroundBumps'
 
 import img_bumps1 from './img/background-bumps.jpg';
@@ -14,13 +15,10 @@ const IndexPage = () => (
   <div>
     <StandardPage>
       <ReadableSection>
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          height: '30rem',
-        }}>
-          <BackgroundBumps src="https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png" />
-        </div>
+        <AnnotatedCanvas caption="Mouse over me to change the light position">
+          <BackgroundBumps
+            src="https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png" />
+        </AnnotatedCanvas>
         <Typography.PageTitle>WebGL Background Bump Mapping</Typography.PageTitle>
         <p><Typography.Subdued>May 12, 2012</Typography.Subdued></p>
         <Typography.Header>What is it?</Typography.Header>
