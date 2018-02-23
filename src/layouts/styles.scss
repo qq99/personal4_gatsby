@@ -62,15 +62,25 @@ p {
   text-align: justify;
 }
 
+ul, ol {
+  li {
+    margin-bottom: 0;
+  }
+}
+
 .page-title {
   font-weight: 200;
   font-size: 3em;
   font-style: italic;
 }
+.page-subtitle {
+  font-weight: 200;
+  font-size: 2em;
+}
+
 .page-tagline {
   color: lighten($font-color, 30%);
   font-size: 0.8em;
-  margin-top: -1.5em;
 }
 
 h3 {
@@ -97,7 +107,7 @@ h3 {
 .lab-feature {
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem 0;
+  margin: 3rem 0;
 
   margin-right: -2rem;
   > * {
@@ -127,7 +137,7 @@ h3 {
     display: grid;
     max-width: 80rem;
     margin: auto;
-    grid-template-columns: 50rem 30rem;
+    grid-template-columns: 62.5% 37.5%;
     grid-template-rows: auto;
     align-items: start;
   }
@@ -137,7 +147,8 @@ h3 {
 }
 
 /* 1440 + 252px */
-@media screen and (min-width: 80*$font-size + 252px) {
+/* +18px cause of scrollbar BS */
+@media screen and (min-width: 80*$font-size + 252px + 18px) {
   .main-container {
     display: grid;
     grid-template-columns: 252px auto;
@@ -147,6 +158,7 @@ h3 {
       "footer main"
       ". main";
   }
+
   .primary-header {
     position: sticky;
     grid-area: header;
@@ -155,9 +167,8 @@ h3 {
     align-items: center;
     border: 0;
     background: #fbfbff;
-    @include topography($link-color, 0.1);
-    box-shadow: inset -1px -1px 5px rgba(0,0,0,0.1);
   }
+
   .primary-footer {
     grid-area: footer;
     position: sticky;
@@ -166,10 +177,16 @@ h3 {
     margin: 0;
     display: flex;
     align-items: center;
-    @include topography($link-color, 0.1);
   }
+
+  .primary-header, .primary-footer {
+    background-image: url(../img/topography.svg);
+  }
+
   .main-content {
     grid-area: main;
+    box-shadow: -1px -1px 5px rgba(0,0,0,0.1);
+    z-index: 3;
   }
   .navigation {
     display: flex;

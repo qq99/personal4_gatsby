@@ -13,7 +13,7 @@ import img_raytracer from './lab/cs488-raytracer/img/final_scene.png';
 
 const IndexPage = () => (
   <StandardPage>
-    <ReadableSection>
+    <ReadableSection wide>
       <h1 className="page-title">Lab</h1>
       <LabFeature
         title='muvee'

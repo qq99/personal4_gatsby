@@ -4,6 +4,9 @@
   margin: 0 auto;
   padding: 0 2rem;
 }
+.readable-section--wide {
+  width: 80rem;
+}
 .readable-section > :first-child {
   margin-top: 0;
 }
