@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
@@ -10,10 +12,10 @@ import img_older from './img/echoplexus_chat.jpg';
 const IndexPage = () => (
   <StandardPage>
     <ReadableSection>
-      <h1 className="page-title">echoplexus</h1>
-      <p className="page-tagline">2 Feb, 2013</p>
+      <Typography.PageTitle>echoplexus</Typography.PageTitle>
+      <p><Typography.Subdued>Mar 18, 2016</Typography.Subdued></p>
       <AnnotatedImage src={img_latest} caption="echoplexus running as a Firefox App on Ubuntu" />
-      <h3>The goods</h3>
+      <Typography.Header>The goods</Typography.Header>
       <ul>
         <li>
           <a href='https://github.com/qq99/echoplexus' target='_blank' title='External link to the echoplexus project on github'>
@@ -26,7 +28,7 @@ const IndexPage = () => (
           </a>
         </li>
       </ul>
-      <h3>What is it?</h3>
+      <Typography.Header>What is it?</Typography.Header>
       <p>Echoplexus was an anonymous, web-based, IRC-like chatting platform that made its best effort to respect your privacy.  Here's a list of some of the features:</p>
       <ul>
         <li>create and manage public or private channels</li>
@@ -35,7 +37,7 @@ const IndexPage = () => (
         <li>code (JS) and draw together in real time</li>
         <li>make free and secure Peer2Peer video and voice calls with the people in your channel using WebRTC</li>
       </ul>
-      <h3>Current status</h3>
+      <Typography.Header>Current status</Typography.Header>
       <p>echoplex.us is dead. Now, a spammer owns the domain :/</p>
       <p>The userbase / interest just wasn't there for it to be worthwhile for me to continue working on it.  Due to the multi-player nature of the beast, I can't enjoy the project alone.  One day, I'd like to revisit the concept with a better intial design plan; the ad hoc nature of feature development meant things were getting complex and more difficult to maintain.</p>
 

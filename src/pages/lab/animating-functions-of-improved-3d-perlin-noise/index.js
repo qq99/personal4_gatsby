@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
@@ -20,16 +22,16 @@ const IndexPage = () => (
       <AnnotatedCanvas caption="Multi-function scene">
         <Shader1/>
       </AnnotatedCanvas>
-      <h1 className="page-title">Animating Functions of Improved 3D Perlin Noise</h1>
-      <p className="page-tagline">27 Oct, 2011 &ndash; a sleepless night</p>
-      <h3>Overview</h3>
+      <Typography.PageTitle>Animating Functions of Improved 3D Perlin Noise</Typography.PageTitle>
+      <p><Typography.Subdued>Oct 27, 2011 &ndash; a sleepless night</Typography.Subdued></p>
+      <Typography.Header>Overview</Typography.Header>
       <p>In this experiment, I made a quick port of Ken Perlin's <a href="http://mrl.nyu.edu/~perlin/noise/" target="_blank">classical noise</a> in 3 dimensions. Due to its continuity properties, we can take a 2D cross-section and step through the 3rd dimension in time. The end result is a continuous animation.</p>
 
-      <h3>Technical Overview</h3>
+      <Typography.Header>Technical Overview</Typography.Header>
       <p>After reading some of Perlin's work, namely some of his early SIGGRAPH slides, I became intrigued with the potential this has for both 3D texturing and the animation
       of 2D textures.  Many of these 2D textures, when animated, can produce some very compelling effects.</p>
       <p>I employ fragment shaders to calculate per-pixel Perlin noise.  Geometry is minimal, consisting of only 2 triangles that are un-transformed.  Texture co-ordinates are generated and used in some animations, but for others only Fragment.xy is used.  In all cases, time is used as an index to the Z plane of the 3D noise.</p>
-      <h3>Benchmarks & Comparisons</h3>
+      <Typography.Header>Benchmarks & Comparisons</Typography.Header>
       <p>All I can say is: Wow.  WebGL (or more accurately, GLSL) fragment shaders are a huge step up in terms of performance when we compare to my old CPU implementation.</p>
       <p>In the old implementation, on a 1GHz machine:</p>
       <ul>

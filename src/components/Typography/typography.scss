@@ -1,0 +1,18 @@
+$font-color-subdued: rgb(123, 123, 123);
+
+.page-title {
+  font-weight: 200;
+  font-size: 3em;
+  font-style: italic;
+}
+.page-subtitle {
+  font-weight: 200;
+  font-size: 2em;
+}
+.header {
+  font-size: 0.9em;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $font-color-subdued;
+  margin: 1.75em 0;
+}

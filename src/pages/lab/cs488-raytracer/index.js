@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
@@ -13,9 +15,9 @@ import img_multilights from './img/scene_multilights.png'
 const IndexPage = () => (
   <StandardPage>
     <ReadableSection>
-      <h1 className="page-title">A ray-tracer with a focus on various material properties</h1>
-      <p className="page-tagline">July 26, 2011.</p>
-      <h3>Overview</h3>
+      <Typography.PageTitle>A ray-tracer with a focus on various material properties</Typography.PageTitle>
+      <p><Typography.Subdued>Jul 26, 2011.</Typography.Subdued></p>
+      <Typography.Header>Overview</Typography.Header>
       <p>This project was a University project for CS488 &ndash; Introduction to Computer Graphics. The primary goal was to explore the implementation of a variety of different textures and materials.</p>
       <ul>
         <li>Hard shadows</li>

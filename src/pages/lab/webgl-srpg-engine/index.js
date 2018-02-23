@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
@@ -13,9 +15,9 @@ const IndexPage = () => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedImage src={img_srpg1} caption="Terrain generated from Perlin noise" />
-      <h1 className="page-title">WebGL Strategy RPG Engine</h1>
-      <p className="page-tagline">5 Dec, 2011</p>
-      <h3>Executive Summary</h3>
+      <Typography.PageTitle>WebGL Strategy RPG Engine</Typography.PageTitle>
+      <p><Typography.Subdued>Dec 5, 2011</Typography.Subdued></p>
+      <Typography.Header>Overview</Typography.Header>
       <p>
         Created for CS488 (Introduction to Computer Graphics) during Fall 2011 at the University of Waterloo as a final project.  This marks the second
         time that I've taken this course.  Against all odds, I somehow managed to miss the exam during my first course attempt, and was assigned a Fail outright.  I'm pleased to announce

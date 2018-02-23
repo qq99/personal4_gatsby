@@ -68,28 +68,10 @@ ul, ol {
   }
 }
 
-.page-title {
-  font-weight: 200;
-  font-size: 3em;
-  font-style: italic;
-}
-.page-subtitle {
-  font-weight: 200;
-  font-size: 2em;
-}
-
 // todo: delete page-tagline
 .typography--subdued, .page-tagline {
   color: lighten($font-color, 30%);
   font-size: 0.8em;
-}
-
-h3 {
-  font-size: 0.9em;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: $font-color-subdued;
-  margin: 1.75em 0;
 }
 
 .main-container {
@@ -98,12 +80,11 @@ h3 {
   min-height: 100vh;
 }
 .main-content {
-  // padding: 2rem 0;
   flex: 1 0 auto;
   position: relative;
 }
 .page-content {
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .lab-feature {

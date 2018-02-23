@@ -4,6 +4,7 @@ import StandardPage from '../../components/StandardPage'
 import ReadableSection from '../../components/ReadableSection'
 import ImageGrid from '../../components/ImageGrid'
 import AnnotatedImage from '../../components/AnnotatedImage'
+import Typography from '../../components/Typography';
 
 import img_tile_ab from './img/tile_ab.jpg';
 import img_tile_apwan from './img/tile_apwan.jpg';
@@ -24,7 +25,7 @@ import './portfolio.scss';
 const IndexPage = () => (
   <StandardPage>
     <ReadableSection>
-      <h1 className="page-title">Front-end Work</h1>
+      <Typography.PageTitle>Front-end Work</Typography.PageTitle>
       <p>I specialize in front-end development, and I believe I can make any design a reality. I'm not a designer by trade, but I like to dabble and design via CSS. I like to think I have an eye for aesthetics.</p>
       <p>Below you'll see some work I was involved with back in my freelancing days.</p>
     </ReadableSection>

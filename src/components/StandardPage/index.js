@@ -1,12 +1,13 @@
 import React from 'react'
 
+import classNames from 'classnames';
+
 class StandardPage extends React.Component {
   render() {
-    const classes = ['page-content']
-    if (this.props.twoColumn) { classes.push('two-column-grid') }
-
     return (
-      <div className={classes.join(' ')}>
+      <div className={classNames('page-content', {
+          'two-column-grid': this.props.twoColumn,
+        })}>
         {this.props.children}
       </div>
     );
