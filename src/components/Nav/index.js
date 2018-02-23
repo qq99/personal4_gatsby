@@ -1,13 +1,11 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import ReadableSection from '../ReadableSection'
+import React from "react";
 
-import './nav.css'
+import "./nav.css";
 
 const Nav = (props) => (
-  <nav className="navigation" {...props}>
+  <nav className="navigation" { ...props }>
     {props.children}
   </nav>
-)
+);
 
-export default Nav
+export default Nav;

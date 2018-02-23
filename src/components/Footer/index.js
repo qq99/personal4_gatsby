@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import ReadableSection from '../ReadableSection'
-import Nav from '../Nav'
+import React from "react";
+import ReadableSection from "../ReadableSection";
+import Nav from "../Nav";
 
-import './footer.css';
+import "./footer.css";
 
 const Footer = () => (
   <footer className="primary-footer">
@@ -27,6 +26,6 @@ const Footer = () => (
       </Nav>
     </ReadableSection>
   </footer>
-)
+);
 
-export default Footer
+export default Footer;

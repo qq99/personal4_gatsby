@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import ReadableSection from '../ReadableSection'
-import Nav from '../Nav'
+import React from "react";
+import Link from "gatsby-link";
+import ReadableSection from "../ReadableSection";
+import Nav from "../Nav";
 
-import './header.css'
+import "./header.css";
 
 const Header = () => (
   <header className="primary-header">
@@ -27,6 +27,6 @@ const Header = () => (
       </Nav>
     </ReadableSection>
   </header>
-)
+);
 
-export default Header
+export default Header;

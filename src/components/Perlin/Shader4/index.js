@@ -1,26 +1,26 @@
-import React from 'react'
-import Canvas from '../../Canvas'
-import PerlinBase from '../Base'
+import React from "react";
+import PerlinBase from "../Base";
 
-import fragment_shader from 'raw-loader!./shader.frag'
-import vertex_shader from 'raw-loader!./shader.vert'
+import fragment_shader from "raw-loader!./shader.frag";
+import vertex_shader from "raw-loader!./shader.vert";
 
 class PerlinShader4 extends React.Component {
   render() {
     return (
       <PerlinBase
         // fallback={fallback}
-        shaders={[{
+        shaders={ [{
           code: vertex_shader,
-          type: 'vertex',
+          type: "vertex",
         }, {
           code: fragment_shader,
-          type: 'fragment',
-        }]} />
-    )
+          type: "fragment",
+        }] }
+      />
+    );
   }
 }
 
-export default PerlinShader4
+export default PerlinShader4;
 
 

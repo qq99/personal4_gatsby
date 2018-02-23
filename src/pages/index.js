@@ -1,9 +1,8 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import CrazyEye from '../components/CrazyEye'
+import React from "react";
+import CrazyEye from "../components/CrazyEye";
 
 const IndexPage = () => (
   <CrazyEye/>
-)
+);
 
-export default IndexPage
+export default IndexPage;

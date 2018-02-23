@@ -1,5 +1,5 @@
-import React from 'react'
-import Canvas from '../../Canvas'
+import React from "react";
+import Canvas from "../../Canvas";
 
 const permutation = new Uint8Array([151,160,137,91,90,15,
   131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,
@@ -27,7 +27,7 @@ class PerlinBase extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resizeCanvas.bind(this));
+    window.addEventListener("resize", this.resizeCanvas.bind(this));
   }
 
   componentWillUnmount() {
@@ -36,7 +36,7 @@ class PerlinBase extends React.Component {
   }
 
   unbind() {
-    window.removeEventListener('resize', this.resizeCanvas.bind(this));
+    window.removeEventListener("resize", this.resizeCanvas.bind(this));
   }
 
   onFail() {
@@ -74,9 +74,9 @@ class PerlinBase extends React.Component {
     this.perlinTexture = perlinTexture;
 
     var g = new Uint8Array([1,1,0,    -1,1,0,    1,-1,0,    -1,-1,0,
-                            1,0,1,    -1,0,1,    1,0,-1,    -1,0,-1,
-                            0,1,1,    0,-1,1,    0,1,-1,    0,-1,-1,
-                            1,1,0,    0,-1,1,    -1,1,0,    0,-1,-1]);
+      1,0,1,    -1,0,1,    1,0,-1,    -1,0,-1,
+      0,1,1,    0,-1,1,    0,1,-1,    0,-1,-1,
+      1,1,0,    0,-1,1,    -1,1,0,    0,-1,-1]);
     const p_gradient = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, p_gradient);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
@@ -90,11 +90,11 @@ class PerlinBase extends React.Component {
     const cubeVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
     const vertices = [
-        // Back face
-        -1.0, -1.0, -1.0,
-        -1.0,  1.0, -1.0,
-         1.0,  1.0, -1.0,
-         1.0, -1.0, -1.0,
+      // Back face
+      -1.0, -1.0, -1.0,
+      -1.0,  1.0, -1.0,
+      1.0,  1.0, -1.0,
+      1.0, -1.0, -1.0,
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     cubeVertexPositionBuffer.itemSize = 3;
@@ -118,7 +118,7 @@ class PerlinBase extends React.Component {
     const cubeVertexIndexBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
     var cubeVertexIndices = [
-        0, 1, 2,      0, 2, 3,    // Back face
+      0, 1, 2,      0, 2, 3,    // Back face
     ];
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
     cubeVertexIndexBuffer.itemSize = 1;
@@ -196,13 +196,14 @@ class PerlinBase extends React.Component {
     return (
       <Canvas
         // fallback={fallback}
-        shaders={this.props.shaders}
-        onFail={this.onFail.bind(this)}
-        onWebgl={this.onWebgl.bind(this)} />
-    )
+        shaders={ this.props.shaders }
+        onFail={ this.onFail.bind(this) }
+        onWebgl={ this.onWebgl.bind(this) }
+      />
+    );
   }
 }
 
-export default PerlinBase
+export default PerlinBase;
 
 

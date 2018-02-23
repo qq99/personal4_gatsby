@@ -1,10 +1,10 @@
-import React from 'react'
-import Canvas from '../Canvas'
+import React from "react";
+import Canvas from "../Canvas";
 
-import fragment_shader from 'raw-loader!./shader.frag'
-import vertex_shader from 'raw-loader!./shader.vert'
+import fragment_shader from "raw-loader!./shader.frag";
+import vertex_shader from "raw-loader!./shader.vert";
 
-const fallback = '';
+const fallback = "";
 
 // http://www.khronos.org/webgl/wiki/WebGL_and_OpenGL_Differences#Non-Power_of_Two_Texture_Support
 function isPowerOfTwo(x) {
@@ -15,7 +15,7 @@ function isPowerOfTwo(x) {
 function nextHighestPowerOfTwo(x) {
   --x;
   for (var i = 1; i < 32; i <<= 1) {
-      x = x | x >> i;
+    x = x | x >> i;
   }
   return x + 1;
 }
@@ -38,7 +38,7 @@ class BackgroundBumps extends React.Component {
       diffuse: [64, 255, 76, 255],
       texture_aspect: 1,
       texture_diffuse_rgba: [64/255.0, 67/255.0, 76/255.0, 1],
-    }
+    };
 
     this.state = {
       ctx: null,
@@ -46,7 +46,7 @@ class BackgroundBumps extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resizeCanvas.bind(this));
+    window.addEventListener("resize", this.resizeCanvas.bind(this));
   }
 
   componentWillUnmount() {
@@ -55,11 +55,11 @@ class BackgroundBumps extends React.Component {
   }
 
   bindMouseListeners() {
-    this.canvas.addEventListener('mousemove', this.onMouseMove.bind(this));
+    this.canvas.addEventListener("mousemove", this.onMouseMove.bind(this));
   }
 
   unbind() {
-    window.removeEventListener('resize', this.resizeCanvas.bind(this));
+    window.removeEventListener("resize", this.resizeCanvas.bind(this));
   }
 
   onMouseMove(evt) {
@@ -105,11 +105,11 @@ class BackgroundBumps extends React.Component {
     drawing_quad.vertices = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, drawing_quad.vertices);
     var vertices = [
-        // Back face
-        -1.0, -1.0, 0.0,
-        -1.0,  1.0, 0.0,
-         1.0,  1.0, 0.0,
-         1.0, -1.0, 0.0,
+      // Back face
+      -1.0, -1.0, 0.0,
+      -1.0,  1.0, 0.0,
+      1.0,  1.0, 0.0,
+      1.0, -1.0, 0.0,
     ];
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     drawing_quad.vertices.itemSize = 3;
@@ -131,7 +131,7 @@ class BackgroundBumps extends React.Component {
     drawing_quad.indices = gl.createBuffer();
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, drawing_quad.indices);
     var cubeVertexIndices = [
-        0, 1, 2,      0, 2, 3,    // Back face
+      0, 1, 2,      0, 2, 3,    // Back face
     ];
     gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
     drawing_quad.indices.itemSize = 1;
@@ -139,7 +139,7 @@ class BackgroundBumps extends React.Component {
 
     this.drawing_quad = drawing_quad;
 
-    const sampleTexture = this.props.src || 'https://www.toptal.com/designers/subtlepatterns/patterns/vintage-concrete.png';
+    const sampleTexture = this.props.src || "https://www.toptal.com/designers/subtlepatterns/patterns/vintage-concrete.png";
 
     this.loadTexture(sampleTexture);
 
@@ -171,12 +171,12 @@ class BackgroundBumps extends React.Component {
     }
     drawing_quad.texture = gl.createTexture();
     drawing_quad.texture.image = new Image();
-    drawing_quad.texture.image.crossOrigin = 'anonymous';
+    drawing_quad.texture.image.crossOrigin = "anonymous";
     drawing_quad.texture.image.onload = this.handleLoadedTexture.bind(this);
     drawing_quad.texture.image.src = src;
   }
 
-  handleLoadedTexture(textureRef) {
+  handleLoadedTexture() {
     const texture = this.drawing_quad.texture;
     const gl = this.gl;
     gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -247,18 +247,19 @@ class BackgroundBumps extends React.Component {
   render() {
     return (
       <Canvas
-        fallback={fallback}
-        shaders={[{
+        fallback={ fallback }
+        shaders={ [{
           code: vertex_shader,
-          type: 'vertex',
+          type: "vertex",
         }, {
           code: fragment_shader,
-          type: 'fragment',
-        }]}
-        onFail={this.onFail.bind(this)}
-        onWebgl={this.onWebgl.bind(this)} />
-    )
+          type: "fragment",
+        }] }
+        onFail={ this.onFail.bind(this) }
+        onWebgl={ this.onWebgl.bind(this) }
+      />
+    );
   }
 }
 
-export default BackgroundBumps
+export default BackgroundBumps;

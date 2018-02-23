@@ -1,10 +1,9 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from "react";
+import Helmet from "react-helmet";
 
-import StandardPage from '../components/StandardPage'
-import ReadableSection from '../components/ReadableSection'
-import Typography from '../components/Typography';
+import StandardPage from "../components/StandardPage";
+import ReadableSection from "../components/ReadableSection";
+import Typography from "../components/Typography";
 
 const IndexPage = () => (
   <StandardPage>
@@ -30,6 +29,6 @@ const IndexPage = () => (
       <p>I feel anonymity will be necessary to further the evolution of our species. I don't think that we should consider only people as beings that holds rights, but instead extend these rights to information themselves. Ideas can certainly seem to come alive, replicate themselves, and infect the minds of others. I think that biological definitions of "life" and "alive" are missing the mark.</p>
     </ReadableSection>
   </StandardPage>
-)
+);
 
-export default IndexPage
+export default IndexPage;

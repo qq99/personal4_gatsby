@@ -1,11 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from "react";
+import Helmet from "react-helmet";
 
-import StandardPage from '../components/StandardPage'
-import ReadableSection from '../components/ReadableSection'
-import Typography from '../components/Typography'
-import Resume from '../components/Resume'
+import StandardPage from "../components/StandardPage";
+import ReadableSection from "../components/ReadableSection";
+import Typography from "../components/Typography";
+import Resume from "../components/Resume";
 
 const IndexPage = () => (
   <StandardPage>
@@ -27,12 +26,13 @@ const IndexPage = () => (
         <div className='resume__job'>
           <Resume.Position
             jobTitle="Senior Software Developer"
-            employers={[{
-              name: 'Shopify',
-              website: 'https://www.shopify.com',
-            }]}
+            employers={ [{
+              name: "Shopify",
+              website: "https://www.shopify.com",
+            }] }
             start="Oct 2013"
-            stop="Now" />
+            stop="Now"
+          />
           <p>
             In my first year, I worked primarily on the admin team &ndash; the section store owners use &ndash; implementing features, fixing bugs, filing issues, and writing maintenance tasks.  Since Shopify encourages a strong culture of ownership, I'm always looking out for potential problems regarding user experience across project and team boundaries.
           </p>
@@ -48,12 +48,13 @@ const IndexPage = () => (
         <div className='resume__job'>
           <Resume.Position
             jobTitle="UI Developer"
-            employers={[{
-              name: 'Exinda Networks',
-              website: 'https://www.exinda.com',
-            }]}
+            employers={ [{
+              name: "Exinda Networks",
+              website: "https://www.exinda.com",
+            }] }
             start="Aug 2012"
-            stop="Aug 2013" />
+            stop="Aug 2013"
+          />
           <p>At Exinda, I was working on a large-scope single-page JavaScript application.  We used Backbone to structure our core application, Underscore and jQuery for developer convenience, and Handlebars and i18n.js for templating.  I was deeply involved in the design and implementation of many interactive modules (e.g., line and bar graphs) at the core of the application. We unit tested our frontend with Sinon, Chai, Mocha, and Jasmine.  I wrote many acceptance tests using Cucumber (Capybara & Watir).</p>
           <p>It was at Exinda that I first got really involved with JavaScript-based developer utilities: node, bbb, jshint, and many others.  I wrote an intercepting proxy in Ruby to aid with manual testing when targeting different versions of our RESTful API.  Combined with Apache2 load balancers, this proxy also enabled us to simulate low-latency and unreliable-link scenarios while developing UI components, discovering bugs preemptively.</p>
           <p>I was responsible for the creation of a set of utilities that added dummy data for demonstration purposes.  These utilities were also used for creating fixtures for acceptance tests. Git became a part of my daily workflow; I could not do without it.</p>
@@ -61,14 +62,15 @@ const IndexPage = () => (
         <div className='resume__job'>
           <Resume.Position
             jobTitle="Freelance Web Developer"
-            employers={[{
-              name: 'Uptown Creative Inc',
-              website: 'http://www.uptowncreativeinc.com',
+            employers={ [{
+              name: "Uptown Creative Inc",
+              website: "http://www.uptowncreativeinc.com",
             }, {
-              name: 'Others'
-            }]}
+              name: "Others"
+            }] }
             start="Dec 2009"
-            stop="Aug 2012" />
+            stop="Aug 2012"
+          />
           <p>Uptown Creative Group specializes in providing clean, cross-browser, interactive HTML5 websites. During my time there, I participated in the creation of many static and CMS-driven sites, with a heavy focus on interactive maps, dynamic map searches, Yelp and weather integration.  I also tailored 3rd party feeds, themed iHomeFinder sites, and provided integration for search, filtering, and pagination of MLS results.</p>
           <p>As a freelance web developer, I was responsible for the entirety of the development phase: I received a set of design documents, and from there I created semantic HTML5 mark-up using HAML (to insure well-formedness), sensible and minified CSS with the SASS compiler, and image spritesheets for anything that couldn't be done without them.</p>
           <p>jQuery was employed heavily on nearly every site for interactive widgets, image lazy loading, and more. From this shell template, we moved on to PHP or WordPress, depending on client needs.</p>
@@ -81,13 +83,14 @@ const IndexPage = () => (
       <section id='education'>
         <Typography.PageSubtitle>Education</Typography.PageSubtitle>
         <Resume.Position
-            jobTitle="Bachelor of Computer Science"
-            employers={[{
-              name: 'University of Waterloo',
-              website: 'https://uwaterloo.ca/',
-            }]}
-            start=""
-            stop="" />
+          jobTitle="Bachelor of Computer Science"
+          employers={ [{
+            name: "University of Waterloo",
+            website: "https://uwaterloo.ca/",
+          }] }
+          start=""
+          stop=""
+        />
         <p>
           <strong>Key Courses:</strong> Introduction to Computer Graphics, Medical Image Processing, Distributed Systems, Introduction to Artificial Intelligence, Computer Networks, Numerical Computation, Algorithms, Computer Security and Privacy, Operating Systems
         </p>

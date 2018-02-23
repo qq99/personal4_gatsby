@@ -1,22 +1,21 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
 
-import Typography from '../../../components/Typography'
-import StandardPage from '../../../components/StandardPage'
-import ReadableSection from '../../../components/ReadableSection'
-import AnnotatedImage from '../../../components/AnnotatedImage'
+import Typography from "../../../components/Typography";
+import StandardPage from "../../../components/StandardPage";
+import ReadableSection from "../../../components/ReadableSection";
+import AnnotatedImage from "../../../components/AnnotatedImage";
 
-import img_movies_index from './img/movies-index.jpeg'
-import img_detailed_movies_page from './img/detailed-movies-page.jpeg'
-import img_quick_search from './img/movies-quick-search.jpeg'
-import img_player from './img/player.jpeg'
-import img_series_index from './img/series-index.jpeg'
-import img_series_show from './img/series-show-episode-details.jpeg'
+import img_movies_index from "./img/movies-index.jpeg";
+import img_detailed_movies_page from "./img/detailed-movies-page.jpeg";
+import img_quick_search from "./img/movies-quick-search.jpeg";
+import img_player from "./img/player.jpeg";
+import img_series_index from "./img/series-index.jpeg";
+import img_series_show from "./img/series-show-episode-details.jpeg";
 
 const IndexPage = () => (
   <StandardPage twoColumn>
     <ReadableSection>
-      <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
+      <AnnotatedImage src={ img_movies_index } caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
       <Typography.PageTitle>μv (aka muvee)</Typography.PageTitle>
       <p><Typography.Subdued>Feb 2, 2013</Typography.Subdued></p>
       <Typography.Header>The goods</Typography.Header>
@@ -44,13 +43,13 @@ const IndexPage = () => (
       <p>I am actively developing muvee, and use it in tandem with my Netflix subscription.  It's gotten to the point where I very rarely have to manually intervene to correct unexpected behaviour. I love it, passionately.</p>
     </ReadableSection>
     <ReadableSection>
-      <AnnotatedImage src={img_detailed_movies_page} caption="Detailed movie view page, when movie is sourced" />
-      <AnnotatedImage src={img_quick_search} caption="Hit 't' to quick search from any index" />
-      <AnnotatedImage src={img_player} caption="The player, playing an episode of Rick and Morty" />
-      <AnnotatedImage src={img_series_index} caption="Series index page, poster layout" />
-      <AnnotatedImage src={img_series_show} caption="Detailed series page, viewing 2 episodes in detail" />
+      <AnnotatedImage src={ img_detailed_movies_page } caption="Detailed movie view page, when movie is sourced" />
+      <AnnotatedImage src={ img_quick_search } caption="Hit 't' to quick search from any index" />
+      <AnnotatedImage src={ img_player } caption="The player, playing an episode of Rick and Morty" />
+      <AnnotatedImage src={ img_series_index } caption="Series index page, poster layout" />
+      <AnnotatedImage src={ img_series_show } caption="Detailed series page, viewing 2 episodes in detail" />
     </ReadableSection>
   </StandardPage>
 );
 
-export default IndexPage
+export default IndexPage;

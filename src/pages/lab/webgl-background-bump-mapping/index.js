@@ -1,15 +1,14 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
 
-import Typography from '../../../components/Typography'
-import StandardPage from '../../../components/StandardPage'
-import ReadableSection from '../../../components/ReadableSection'
-import AnnotatedImage from '../../../components/AnnotatedImage'
-import AnnotatedCanvas from '../../../components/AnnotatedCanvas'
-import BackgroundBumps from '../../../components/BackgroundBumps'
+import Typography from "../../../components/Typography";
+import StandardPage from "../../../components/StandardPage";
+import ReadableSection from "../../../components/ReadableSection";
+import AnnotatedImage from "../../../components/AnnotatedImage";
+import AnnotatedCanvas from "../../../components/AnnotatedCanvas";
+import BackgroundBumps from "../../../components/BackgroundBumps";
 
-import img_bumps1 from './img/background-bumps.jpg';
-import img_bumps2 from './img/background-bumps2.jpg';
+import img_bumps1 from "./img/background-bumps.jpg";
+import img_bumps2 from "./img/background-bumps2.jpg";
 
 const IndexPage = () => (
   <div>
@@ -17,7 +16,8 @@ const IndexPage = () => (
       <ReadableSection>
         <AnnotatedCanvas caption="Mouse over me to change the light position">
           <BackgroundBumps
-            src="https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png" />
+            src="https://www.toptal.com/designers/subtlepatterns/patterns/cartographer.png"
+          />
         </AnnotatedCanvas>
         <Typography.PageTitle>WebGL Background Bump Mapping</Typography.PageTitle>
         <p><Typography.Subdued>May 12, 2012</Typography.Subdued></p>
@@ -43,11 +43,11 @@ const IndexPage = () => (
         <Typography.Header>Limitations & Concerns</Typography.Header>
         <p>The light is less circular the further away the window viewport is from 1:1.  Smart semi-automatic setting of texture coordinate scale and bump scale would be nice, but for now it is a manual tweaking process.</p>
         <p>The code is a mess, and I couldn't figure out why the specular was failing in Linux.  The lighting model isn't terribly standard since there's no actual geometry, so I imagine this could be contributing to my frustrations.  Could be what I thought was working specular in Windows was actually just silently failing.  I've disabled specular and as far as I can see, it looks how it always looked in Windows.</p>
-        <AnnotatedImage src={img_bumps2} />
-        <AnnotatedImage src={img_bumps1} />
+        <AnnotatedImage src={ img_bumps2 } />
+        <AnnotatedImage src={ img_bumps1 } />
       </ReadableSection>
     </StandardPage>
   </div>
 );
 
-export default IndexPage
+export default IndexPage;

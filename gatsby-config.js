@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'anthonycameron.com',
+    title: "anthonycameron.com",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: "gatsby-plugin-favicon",
       options: {
         logo: "./src/favicon.png",
         injectHTML: true,

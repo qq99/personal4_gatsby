@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
-import Typography from '../components/Typography'
-import StandardPage from '../components/StandardPage'
-import ReadableSection from '../components/ReadableSection'
-import LabFeature from '../components/LabFeature'
-
+import Typography from "../components/Typography";
+import StandardPage from "../components/StandardPage";
+import ReadableSection from "../components/ReadableSection";
 
 const NotFoundPage = () => (
   <StandardPage>
@@ -13,6 +11,6 @@ const NotFoundPage = () => (
       <p>Not found.</p>
     </ReadableSection>
   </StandardPage>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

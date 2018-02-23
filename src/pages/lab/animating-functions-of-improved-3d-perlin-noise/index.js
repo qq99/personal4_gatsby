@@ -1,20 +1,17 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
 
-import Typography from '../../../components/Typography'
-import StandardPage from '../../../components/StandardPage'
-import ReadableSection from '../../../components/ReadableSection'
-import AnnotatedImage from '../../../components/AnnotatedImage'
-import AnnotatedCanvas from '../../../components/AnnotatedCanvas'
+import Typography from "../../../components/Typography";
+import StandardPage from "../../../components/StandardPage";
+import ReadableSection from "../../../components/ReadableSection";
+import AnnotatedImage from "../../../components/AnnotatedImage";
+import AnnotatedCanvas from "../../../components/AnnotatedCanvas";
 
-import Shader1 from '../../../components/Perlin/Shader1'
-import Shader2 from '../../../components/Perlin/Shader2'
-import Shader3 from '../../../components/Perlin/Shader3'
-import Shader4 from '../../../components/Perlin/Shader4'
+import Shader1 from "../../../components/Perlin/Shader1";
+import Shader2 from "../../../components/Perlin/Shader2";
+import Shader3 from "../../../components/Perlin/Shader3";
+import Shader4 from "../../../components/Perlin/Shader4";
 
-import img_cpu1 from './img/cpu-perlin1.jpg';
-import img_cpu2 from './img/cpu-perlin2.jpg';
-import img_cpu3 from './img/cpu-perlin3.jpg';
+import img_cpu2 from "./img/cpu-perlin2.jpg";
 
 const IndexPage = () => (
   <StandardPage twoColumn>
@@ -29,7 +26,8 @@ const IndexPage = () => (
 
       <Typography.Header>Technical Overview</Typography.Header>
       <p>After reading some of Perlin's work, namely some of his early SIGGRAPH slides, I became intrigued with the potential this has for both 3D texturing and the animation
-      of 2D textures.  Many of these 2D textures, when animated, can produce some very compelling effects.</p>
+      of 2D textures.  Many of these 2D textures, when animated, can produce some very compelling effects.
+      </p>
       <p>I employ fragment shaders to calculate per-pixel Perlin noise.  Geometry is minimal, consisting of only 2 triangles that are un-transformed.  Texture co-ordinates are generated and used in some animations, but for others only Fragment.xy is used.  In all cases, time is used as an index to the Z plane of the 3D noise.</p>
       <Typography.Header>Benchmarks & Comparisons</Typography.Header>
       <p>All I can say is: Wow.  WebGL (or more accurately, GLSL) fragment shaders are a huge step up in terms of performance when we compare to my old CPU implementation.</p>
@@ -68,9 +66,9 @@ const IndexPage = () => (
       <AnnotatedCanvas caption="Toon shaded / Heatmap">
         <Shader4 />
       </AnnotatedCanvas>
-      <AnnotatedImage src={img_cpu2} caption="Jupiter-esque: Old CPU implementation, src RIP" />
+      <AnnotatedImage src={ img_cpu2 } caption="Jupiter-esque: Old CPU implementation, src RIP" />
     </ReadableSection>
   </StandardPage>
 );
 
-export default IndexPage
+export default IndexPage;

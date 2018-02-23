@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import './canvas.scss';
+import "./canvas.scss";
 
 class Canvas extends React.Component {
   constructor (props) {
@@ -15,7 +15,7 @@ class Canvas extends React.Component {
 
     try {
       let gl;
-      gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true })
+      gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true });
       gl.viewportWidth = canvas.width;
       gl.viewportHeight = canvas.height;
       this.gl = gl;
@@ -47,7 +47,7 @@ class Canvas extends React.Component {
     shaders.map((shaderProp) => {
       const { type, code } = shaderProp;
       let shaderType;
-      if (type == 'fragment') {
+      if (type == "fragment") {
         shaderType = gl.FRAGMENT_SHADER;
       } else {
         shaderType = gl.VERTEX_SHADER;
@@ -81,14 +81,16 @@ class Canvas extends React.Component {
       <div className="canvas-container">
         <div className="fallback" style={{
           backgroundImage: `url('${this.props.fallback}')`,
-          display: this.state.failure ? 'block' : 'none',
-        }}/>
+          display: this.state.failure ? "block" : "none",
+        }}
+        />
         <canvas ref="canvas" style={{
-          display: this.state.failure ? 'none' : 'block',
-        }} />
+          display: this.state.failure ? "none" : "block",
+        }}
+        />
       </div>
-    )
+    );
   }
 }
 
-export default Canvas
+export default Canvas;

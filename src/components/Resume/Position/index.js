@@ -1,7 +1,6 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
 
-import Subdued from '../../Typography/Subdued';
+import Subdued from "../../Typography/Subdued";
 
 class Position extends React.Component {
 
@@ -12,15 +11,16 @@ class Position extends React.Component {
       if (employer.website) {
         return (
           <a
-          href={employer.website}
-          target='_blank'>
+            href={ employer.website }
+            target='_blank'
+          >
             {employer.name}
           </a>
         );
       } else {
         return employer.name;
       }
-    }).reduce((prev, curr) => [prev, ', ', curr]);
+    }).reduce((prev, curr) => [prev, ", ", curr]);
   }
 
   renderTimeframe() {
@@ -35,12 +35,12 @@ class Position extends React.Component {
         </span>
       );
     } else {
-      return '';
+      return "";
     }
   }
 
   render() {
-    const { jobTitle, start, stop } = this.props;
+    const { jobTitle } = this.props;
 
     return (
       <div>
@@ -53,4 +53,4 @@ class Position extends React.Component {
   }
 }
 
-export default Position
+export default Position;

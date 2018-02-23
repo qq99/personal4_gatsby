@@ -1,20 +1,19 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
 
-import Typography from '../../../components/Typography'
-import StandardPage from '../../../components/StandardPage'
-import ReadableSection from '../../../components/ReadableSection'
-import AnnotatedImage from '../../../components/AnnotatedImage'
+import Typography from "../../../components/Typography";
+import StandardPage from "../../../components/StandardPage";
+import ReadableSection from "../../../components/ReadableSection";
+import AnnotatedImage from "../../../components/AnnotatedImage";
 
-import img_srpg1 from './img/srpg1.png'
-import img_srpg2 from './img/srpg2.png'
-import img_srpg3 from './img/srpg3.png'
-import img_srpg4 from './img/srpg4.png'
+import img_srpg1 from "./img/srpg1.png";
+import img_srpg2 from "./img/srpg2.png";
+import img_srpg3 from "./img/srpg3.png";
+import img_srpg4 from "./img/srpg4.png";
 
 const IndexPage = () => (
   <StandardPage twoColumn>
     <ReadableSection>
-      <AnnotatedImage src={img_srpg1} caption="Terrain generated from Perlin noise" />
+      <AnnotatedImage src={ img_srpg1 } caption="Terrain generated from Perlin noise" />
       <Typography.PageTitle>WebGL Strategy RPG Engine</Typography.PageTitle>
       <p><Typography.Subdued>Dec 5, 2011</Typography.Subdued></p>
       <Typography.Header>Overview</Typography.Header>
@@ -37,11 +36,11 @@ const IndexPage = () => (
       </p>
     </ReadableSection>
     <ReadableSection>
-      <AnnotatedImage src={img_srpg2} caption="Sprite shaders, L-system 'trees'" />
-      <AnnotatedImage src={img_srpg3} />
-      <AnnotatedImage src={img_srpg4} />
+      <AnnotatedImage src={ img_srpg2 } caption="Sprite shaders, L-system 'trees'" />
+      <AnnotatedImage src={ img_srpg3 } />
+      <AnnotatedImage src={ img_srpg4 } />
     </ReadableSection>
   </StandardPage>
 );
 
-export default IndexPage
+export default IndexPage;
