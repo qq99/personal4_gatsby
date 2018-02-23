@@ -18,7 +18,7 @@ const IndexPage = () => (
       <AnnotatedImage src={ img_movies_index } caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
       <Typography.PageTitle>μv (aka muvee)</Typography.PageTitle>
       <p><Typography.Subdued>Feb 2, 2013</Typography.Subdued></p>
-      <Typography.Header>The goods</Typography.Header>
+      <Typography.Header>The goods</Typography.Header  >
       <ul>
         <li><a href="https://github.com/qq99/muvee" target="_blank" title="muvee on GitHub">Code</a></li>
         <li><a href="https://www.youtube.com/watch?v=1tevKG6u1qM" target="_blank">YouTube video of a recent revision</a></li>

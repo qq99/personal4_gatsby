@@ -2,7 +2,7 @@ import React from "react";
 import CrazyEye from "../components/CrazyEye";
 
 const IndexPage = () => (
-  <CrazyEye/>
+  <CrazyEye />
 );
 
 export default IndexPage;

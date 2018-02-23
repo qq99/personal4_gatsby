@@ -7,3 +7,6 @@ Builds anthonycameron.com (not yet, one day)
 `gatsby serve`
 
 From public/ dir, `gsutil -m rsync -r -d . gs://test.anthonycameron.com` (`-d` to delete things not in src)
+
+https://cloud.google.com/sdk/docs/#windows
+https://cloud.google.com/storage/docs/static-website

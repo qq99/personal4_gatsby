@@ -17,7 +17,7 @@ const IndexPage = () => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedCanvas caption="Multi-function scene">
-        <Shader1/>
+        <Shader1 />
       </AnnotatedCanvas>
       <Typography.PageTitle>Animating Functions of Improved 3D Perlin Noise</Typography.PageTitle>
       <p><Typography.Subdued>Oct 27, 2011 &ndash; a sleepless night</Typography.Subdued></p>

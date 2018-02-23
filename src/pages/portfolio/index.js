@@ -24,7 +24,7 @@ import "./portfolio.scss";
 
 const IndexPage = () => (
   <StandardPage>
-    <Helmet title="Portfolio - Anthony Cameron"/>
+    <Helmet title="Portfolio - Anthony Cameron" />
     <ReadableSection>
       <Typography.PageTitle>Front-end Work</Typography.PageTitle>
       <p>I specialize in front-end development, and I believe I can make any design a reality. I'm not a designer by trade, but I like to dabble and design via CSS. I like to think I have an eye for aesthetics.</p>
@@ -32,18 +32,18 @@ const IndexPage = () => (
     </ReadableSection>
     <ReadableSection>
       <ImageGrid>
-        <AnnotatedImage src={ img_tile_solage }/>
-        <AnnotatedImage src={ img_tile_solhotel }/>
-        <AnnotatedImage src={ img_tile_ab }/>
-        <AnnotatedImage src={ img_tile_apwan }/>
-        <AnnotatedImage src={ img_tile_e52 }/>
-        <AnnotatedImage src={ img_tile_hannah }/>
-        <AnnotatedImage src={ img_tile_hklane }/>
-        <AnnotatedImage src={ img_tile_jerome }/>
-        <AnnotatedImage src={ img_tile_jwilliams }/>
-        <AnnotatedImage src={ img_tile_pd }/>
-        <AnnotatedImage src={ img_tile_shirtsbyme }/>
-        <AnnotatedImage src={ img_tile_visum }/>
+        <AnnotatedImage src={ img_tile_solage } />
+        <AnnotatedImage src={ img_tile_solhotel } />
+        <AnnotatedImage src={ img_tile_ab } />
+        <AnnotatedImage src={ img_tile_apwan } />
+        <AnnotatedImage src={ img_tile_e52 } />
+        <AnnotatedImage src={ img_tile_hannah } />
+        <AnnotatedImage src={ img_tile_hklane } />
+        <AnnotatedImage src={ img_tile_jerome } />
+        <AnnotatedImage src={ img_tile_jwilliams } />
+        <AnnotatedImage src={ img_tile_pd } />
+        <AnnotatedImage src={ img_tile_shirtsbyme } />
+        <AnnotatedImage src={ img_tile_visum } />
       </ImageGrid>
     </ReadableSection>
   </StandardPage>

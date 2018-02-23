@@ -7,7 +7,7 @@ import Typography from "../components/Typography";
 
 const IndexPage = () => (
   <StandardPage>
-    <Helmet title="Philosophy - Anthony Cameron"/>
+    <Helmet title="Philosophy - Anthony Cameron" />
     <ReadableSection>
       <Typography.PageTitle>Musings, really.</Typography.PageTitle>
       <p>I don't want to hear, "philosophy is useless".</p>

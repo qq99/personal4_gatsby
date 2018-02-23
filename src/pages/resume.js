@@ -8,7 +8,7 @@ import Resume from "../components/Resume";
 
 const IndexPage = () => (
   <StandardPage>
-    <Helmet title="Resume - Anthony Cameron"/>
+    <Helmet title="Resume - Anthony Cameron" />
     <ReadableSection>
       <Typography.PageTitle>Hi, I'm Anthony Cameron</Typography.PageTitle>
       <section id='title'>

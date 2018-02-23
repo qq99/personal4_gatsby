@@ -28,7 +28,7 @@ class Position extends React.Component {
     if (start && stop) {
       return (
         <span>
-          <br/>
+          <br />
           <Subdued>
             <span>{start}</span> &ndash; <span> {stop}</span>
           </Subdued>
