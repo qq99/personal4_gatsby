@@ -12,16 +12,16 @@ const Header = () => (
         <Link to="/" className="nav-link" activeClassName="selected" exact>
           Home
         </Link>
-        <Link to="/lab" className="nav-link" activeClassName="selected">
+        <Link to="/lab/" className="nav-link" activeClassName="selected">
           Lab
         </Link>
-        <Link to="/portfolio" className="nav-link" activeClassName="selected">
+        <Link to="/portfolio/" className="nav-link" activeClassName="selected">
           Portfolio
         </Link>
-        <Link to="/philosophy" className="nav-link" activeClassName="selected">
+        <Link to="/philosophy/" className="nav-link" activeClassName="selected">
           Philosophy
         </Link>
-        <Link to="/resume" className="nav-link" activeClassName="selected">
+        <Link to="/resume/" className="nav-link" activeClassName="selected">
           Resume
         </Link>
       </Nav>

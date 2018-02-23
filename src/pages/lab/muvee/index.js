@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
+import Typography from '../../../components/Typography'
 import StandardPage from '../../../components/StandardPage'
 import ReadableSection from '../../../components/ReadableSection'
 import AnnotatedImage from '../../../components/AnnotatedImage'
@@ -15,8 +17,8 @@ const IndexPage = () => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedImage src={img_movies_index} caption="Movies index page, dynamic tiled layout. Pre CSS grid" />
-      <h1 className="page-title">μv (aka muvee)</h1>
-      <p className="page-tagline">2 Feb, 2013</p>
+      <Typography.PageTitle>μv (aka muvee)</Typography.PageTitle>
+      <p><Typography.Subdued>2 Feb, 2013</Typography.Subdued></p>
       <h3>The goods</h3>
       <ul>
         <li><a href="https://github.com/qq99/muvee" target="_blank" title="muvee on GitHub">Code</a></li>
