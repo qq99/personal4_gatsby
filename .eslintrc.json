@@ -11,6 +11,9 @@
         },
         "sourceType": "module"
     },
+    "globals": {
+        "graphql": true
+    },
     "plugins": [
         "react"
     ],

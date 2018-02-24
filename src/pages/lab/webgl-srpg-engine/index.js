@@ -1,19 +1,17 @@
 import React from "react";
+import Img from "gatsby-image";
 
 import Typography from "../../../components/Typography";
 import StandardPage from "../../../components/StandardPage";
 import ReadableSection from "../../../components/ReadableSection";
 import AnnotatedImage from "../../../components/AnnotatedImage";
 
-import img_srpg1 from "./img/srpg1.png";
-import img_srpg2 from "./img/srpg2.png";
-import img_srpg3 from "./img/srpg3.png";
-import img_srpg4 from "./img/srpg4.png";
-
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <StandardPage twoColumn>
     <ReadableSection>
-      <AnnotatedImage src={ img_srpg1 } caption="Terrain generated from Perlin noise" />
+      <AnnotatedImage caption="Terrain generated from Perlin noise">
+        <Img sizes={ data.srpg1.sizes } />
+      </AnnotatedImage>
       <Typography.PageTitle>WebGL Strategy RPG Engine</Typography.PageTitle>
       <p><Typography.Subdued>Dec 5, 2011</Typography.Subdued></p>
       <Typography.Header>Overview</Typography.Header>
@@ -36,11 +34,34 @@ const IndexPage = () => (
       </p>
     </ReadableSection>
     <ReadableSection>
-      <AnnotatedImage src={ img_srpg2 } caption="Sprite shaders, L-system 'trees'" />
-      <AnnotatedImage src={ img_srpg3 } />
-      <AnnotatedImage src={ img_srpg4 } />
+      <AnnotatedImage caption="Sprite shaders, L-system 'trees'">
+        <Img sizes={ data.srpg2.sizes } />
+      </AnnotatedImage>
+      <AnnotatedImage>
+        <Img sizes={ data.srpg3.sizes } />
+      </AnnotatedImage>
+      <AnnotatedImage>
+        <Img sizes={ data.srpg4.sizes } />
+      </AnnotatedImage>
     </ReadableSection>
   </StandardPage>
 );
 
 export default IndexPage;
+
+export const query = graphql`
+query IndexQueryWebglSrpgEngine {
+  srpg1: imageSharp(id: { regex: "/img/srpg1.png/" }) {
+    ...LabImageFragment
+  }
+  srpg2: imageSharp(id: { regex: "/img/srpg2.png/" }) {
+    ...LabImageFragment
+  }
+  srpg3: imageSharp(id: { regex: "/img/srpg3.png/" }) {
+    ...LabImageFragment
+  }
+  srpg4: imageSharp(id: { regex: "/img/srpg4.png/" }) {
+    ...LabImageFragment
+  }
+}
+`;

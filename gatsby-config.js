@@ -3,6 +3,15 @@ module.exports = {
     title: "anthonycameron.com",
   },
   plugins: [
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/src`,
+        name: "src",
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {

@@ -1,4 +1,5 @@
 import React from "react";
+import Img from "gatsby-image";
 
 import Typography from "../../../components/Typography";
 import StandardPage from "../../../components/StandardPage";
@@ -11,9 +12,7 @@ import Shader2 from "../../../components/Perlin/Shader2";
 import Shader3 from "../../../components/Perlin/Shader3";
 import Shader4 from "../../../components/Perlin/Shader4";
 
-import img_cpu2 from "./img/cpu-perlin2.jpg";
-
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedCanvas caption="Multi-function scene">
@@ -66,9 +65,18 @@ const IndexPage = () => (
       <AnnotatedCanvas caption="Toon shaded / Heatmap">
         <Shader4 />
       </AnnotatedCanvas>
-      <AnnotatedImage src={ img_cpu2 } caption="Jupiter-esque: Old CPU implementation, src RIP" />
+      <AnnotatedImage caption="Jupiter-esque: Old CPU implementation, src RIP">
+        <Img sizes={ data.jupiter.sizes } />
+      </AnnotatedImage>
     </ReadableSection>
   </StandardPage>
 );
 
 export default IndexPage;
+
+export const query = graphql`
+query PerlinIndexQuery {
+  jupiter: imageSharp(id: { regex: "/img/cpu-perlin2.jpg/" }) {
+    ...LabImageFragment
+  }
+}`;
