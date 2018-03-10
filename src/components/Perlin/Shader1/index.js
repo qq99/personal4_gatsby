@@ -8,19 +8,20 @@ class PerlinShader1 extends React.Component {
   render() {
     return (
       <PerlinBase
-        // fallback={fallback}
-        shaders={ [{
-          code: vertex_shader,
-          type: "vertex",
-        }, {
-          code: fragment_shader,
-          type: "fragment",
-        }] }
+        fallback={ this.props.fallback }
+        shaders={ [
+          {
+            code: vertex_shader,
+            type: "vertex"
+          },
+          {
+            code: fragment_shader,
+            type: "fragment"
+          }
+        ] }
       />
     );
   }
 }
 
 export default PerlinShader1;
-
-

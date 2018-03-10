@@ -1,5 +1,7 @@
 import React from "react";
 import Canvas from "../../Canvas";
+import autobind from "autobind-decorator";
+
 import perlinPermutation from "../PerlinPermutation";
 
 class PerlinBase extends React.Component {
@@ -7,45 +9,55 @@ class PerlinBase extends React.Component {
     super(props, context);
 
     this.drawContext = {
-      darkness: 0.0,
+      darkness: 0.0
     };
 
     this.state = { ctx: null };
   }
 
-  componentDidMount() {
-    window.addEventListener("resize", this.resizeCanvas.bind(this));
-  }
-
   componentWillUnmount() {
-    this.paused = true;
-    this.unbind();
+    // this.paused = true;
   }
 
-  unbind() {
-    window.removeEventListener("resize", this.resizeCanvas.bind(this));
-  }
-
+  @autobind
   onFail() {
-    this.paused = true;
-    this.unbind();
+    // this.paused = true;
   }
 
+  @autobind
   onWebgl(canvas, gl, shaderProgram) {
     this.canvas = canvas;
     this.gl = gl;
     this.shaderProgram = shaderProgram;
 
-    shaderProgram.vertexPositionAttribute = gl.getAttribLocation(shaderProgram, "aVertexPosition");
+    shaderProgram.vertexPositionAttribute = gl.getAttribLocation(
+      shaderProgram,
+      "aVertexPosition"
+    );
     gl.enableVertexAttribArray(shaderProgram.vertexPositionAttribute);
 
-    shaderProgram.textureCoordAttribute = gl.getAttribLocation(shaderProgram, "aTextureCoord");
+    shaderProgram.textureCoordAttribute = gl.getAttribLocation(
+      shaderProgram,
+      "aTextureCoord"
+    );
     gl.enableVertexAttribArray(shaderProgram.textureCoordAttribute);
 
-    shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
-    shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
-    shaderProgram.perm_sampler = gl.getUniformLocation(shaderProgram, "uperm_sampler");
-    shaderProgram.grad_sampler = gl.getUniformLocation(shaderProgram, "igrad_sampler");
+    shaderProgram.pMatrixUniform = gl.getUniformLocation(
+      shaderProgram,
+      "uPMatrix"
+    );
+    shaderProgram.mvMatrixUniform = gl.getUniformLocation(
+      shaderProgram,
+      "uMVMatrix"
+    );
+    shaderProgram.perm_sampler = gl.getUniformLocation(
+      shaderProgram,
+      "uperm_sampler"
+    );
+    shaderProgram.grad_sampler = gl.getUniformLocation(
+      shaderProgram,
+      "igrad_sampler"
+    );
     shaderProgram.time = gl.getUniformLocation(shaderProgram, "time");
     shaderProgram.darkness = gl.getUniformLocation(shaderProgram, "darkness");
     shaderProgram.mouseY = gl.getUniformLocation(shaderProgram, "mouseY");
@@ -57,20 +69,40 @@ class PerlinBase extends React.Component {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.LUMINANCE, 256, 1, 0, gl.LUMINANCE, gl.UNSIGNED_BYTE, perlinPermutation);
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.LUMINANCE,
+      256,
+      1,
+      0,
+      gl.LUMINANCE,
+      gl.UNSIGNED_BYTE,
+      perlinPermutation
+    );
     this.perlinTexture = perlinTexture;
 
     var g = new Uint8Array([1,1,0,    -1,1,0,    1,-1,0,    -1,-1,0,
       1,0,1,    -1,0,1,    1,0,-1,    -1,0,-1,
       0,1,1,    0,-1,1,    0,1,-1,    0,-1,-1,
-      1,1,0,    0,-1,1,    -1,1,0,    0,-1,-1]);
+      1,1,0,    0,-1,1,    -1,1,0,    0,-1,-1]); // prettier-ignore
     const p_gradient = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, p_gradient);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, 16, 1, 0, gl.RGB, gl.UNSIGNED_BYTE, g);
+    gl.texImage2D(
+      gl.TEXTURE_2D,
+      0,
+      gl.RGB,
+      16,
+      1,
+      0,
+      gl.RGB,
+      gl.UNSIGNED_BYTE,
+      g
+    );
     this.p_gradient = p_gradient;
 
     // initBuffers:
@@ -82,7 +114,7 @@ class PerlinBase extends React.Component {
       -1.0,  1.0, -1.0,
       1.0,  1.0, -1.0,
       1.0, -1.0, -1.0,
-    ];
+    ]; // prettier-ignore
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     cubeVertexPositionBuffer.itemSize = 3;
     cubeVertexPositionBuffer.numItems = 4;
@@ -96,8 +128,12 @@ class PerlinBase extends React.Component {
       1.0, 1.0,
       0.0, 1.0,
       0.0, 0.0,
-    ];
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textureCoords), gl.STATIC_DRAW);
+    ]; // prettier-ignore
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array(textureCoords),
+      gl.STATIC_DRAW
+    );
     cubeVertexTextureCoordBuffer.itemSize = 2;
     cubeVertexTextureCoordBuffer.numItems = 4;
     this.cubeVertexTextureCoordBuffer = cubeVertexTextureCoordBuffer;
@@ -106,22 +142,42 @@ class PerlinBase extends React.Component {
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
     var cubeVertexIndices = [
       0, 1, 2,      0, 2, 3,    // Back face
-    ];
-    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(cubeVertexIndices), gl.STATIC_DRAW);
+    ]; // prettier-ignore
+    gl.bufferData(
+      gl.ELEMENT_ARRAY_BUFFER,
+      new Uint16Array(cubeVertexIndices),
+      gl.STATIC_DRAW
+    );
     cubeVertexIndexBuffer.itemSize = 1;
     cubeVertexIndexBuffer.numItems = 6;
     this.cubeVertexIndexBuffer = cubeVertexIndexBuffer;
 
-    this.resizeCanvas();
+    this.lastTimestamp = 0.0;
     this.time = 0.0;
-    this.paused = false;
-    this.animate();
   }
 
+  @autobind
+  onPlay() {
+    this.lastTimestamp = performance.now();
+    // this.paused = false;
+    this.animationFrame = requestAnimationFrame(this.animate);
+  }
+
+  @autobind
+  onPause() {
+    // this.paused = true;
+    cancelAnimationFrame(this.animationFrame);
+  }
+
+  @autobind
   animate(timestamp) {
-    if (this.paused) { return; }
-    this.time = timestamp / 1000.0;
-    requestAnimationFrame(this.animate.bind(this));
+    // if (this.paused) {
+    //   return;
+    // }
+
+    const dTime = (timestamp - this.lastTimestamp) / 1000;
+    this.time += dTime;
+    this.lastTimestamp = timestamp;
 
     let darkness = this.drawContext.darkness;
     if (darkness >= 1.0) {
@@ -132,13 +188,7 @@ class PerlinBase extends React.Component {
     this.drawContext.darkness = darkness;
 
     this.drawScene();
-  }
-
-  resizeCanvas() {
-    const canvas = this.canvas;
-    if (this.paused) { return; }
-    canvas.height = canvas.clientHeight;
-    canvas.width = canvas.clientWidth;
+    this.animationFrame = requestAnimationFrame(this.animate);
   }
 
   drawScene() {
@@ -160,10 +210,24 @@ class PerlinBase extends React.Component {
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
-    gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, cubeVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(
+      shaderProgram.vertexPositionAttribute,
+      cubeVertexPositionBuffer.itemSize,
+      gl.FLOAT,
+      false,
+      0,
+      0
+    );
 
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexTextureCoordBuffer);
-    gl.vertexAttribPointer(shaderProgram.textureCoordAttribute, cubeVertexTextureCoordBuffer.itemSize, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(
+      shaderProgram.textureCoordAttribute,
+      cubeVertexTextureCoordBuffer.itemSize,
+      gl.FLOAT,
+      false,
+      0,
+      0
+    );
 
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, perlinTexture);
@@ -176,21 +240,26 @@ class PerlinBase extends React.Component {
     gl.uniform1f(shaderProgram.darkness, this.drawContext.darkness);
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVertexIndexBuffer);
-    gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+    gl.drawElements(
+      gl.TRIANGLES,
+      cubeVertexIndexBuffer.numItems,
+      gl.UNSIGNED_SHORT,
+      0
+    );
   }
 
   render() {
     return (
       <Canvas
-        // fallback={fallback}
-        shaders={ this.props.shaders }
-        onFail={ this.onFail.bind(this) }
-        onWebgl={ this.onWebgl.bind(this) }
+        fallback={this.props.fallback}
+        shaders={this.props.shaders}
+        onFail={this.onFail}
+        onWebgl={this.onWebgl}
+        onPlay={this.onPlay}
+        onPause={this.onPause}
       />
     );
   }
 }
 
 export default PerlinBase;
-
-
