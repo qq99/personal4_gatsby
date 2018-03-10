@@ -11,11 +11,15 @@ class Canvas extends React.Component {
       initialized: false,
       status: "uninitialized"
     };
-    this.debouncedResizeCanvas = debounce(this.resizeCanvas, 100);
+    this.debouncedResizeCanvas = debounce(this.resizeCanvas, 50);
+    this.time = 0;
   }
 
   componentDidMount() {
     window.addEventListener("resize", this.debouncedResizeCanvas);
+    if (this.props.autoplay) {
+      this.play();
+    }
   }
 
   componentDidUpdate() {
@@ -23,6 +27,7 @@ class Canvas extends React.Component {
   }
 
   componentWillUnmount() {
+    this.pause();
     window.removeEventListener("resize", this.debouncedResizeCanvas);
   }
 
@@ -30,7 +35,7 @@ class Canvas extends React.Component {
     const canvas = this.refs.canvas;
 
     try {
-      // throw "foo";
+      // throw "foo"; // test error handling
       let gl;
       gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true });
       gl.viewportWidth = canvas.width;
@@ -53,6 +58,7 @@ class Canvas extends React.Component {
     }
   }
 
+  @autobind
   resizeCanvas() {
     const canvas = this.refs ? this.refs.canvas : null;
     if (!canvas) {
@@ -69,23 +75,39 @@ class Canvas extends React.Component {
     }
     this.resizeCanvas();
 
+    this.lastTimestamp = performance.now();
+
     this.setState({ status: "play" });
     if (this.props.onPlay) {
       this.props.onPlay();
     }
+    this.animationFrame = requestAnimationFrame(this.animate);
   }
 
   @autobind
   pause() {
+    cancelAnimationFrame(this.animationFrame);
     this.setState({ status: "paused" });
     if (this.props.onPause) {
       this.props.onPause();
     }
   }
 
+  @autobind
+  animate(timestamp) {
+    const dTime = (timestamp - this.lastTimestamp) / 1000;
+    this.time += dTime;
+    this.lastTimestamp = timestamp;
+
+    this.props.onAnimate(timestamp, dTime, this.time);
+    this.animationFrame = requestAnimationFrame(this.animate);
+  }
+
   fail() {
     this.setState({ status: "failure" });
-    this.props.onFail();
+    if (this.props.onFail) {
+      this.props.onFail();
+    }
   }
 
   compileAndLinkShaderProgram() {
@@ -158,7 +180,7 @@ class Canvas extends React.Component {
 
     return (
       <div className="canvas-container">
-        {this.renderPlaybackControls()}
+        {this.props.showPlayControls ? this.renderPlaybackControls() : null}
         <div
           className="fallback"
           style={{
@@ -179,5 +201,10 @@ class Canvas extends React.Component {
     );
   }
 }
+
+Canvas.defaultProps = {
+  autoplay: false,
+  showPlayControls: true
+};
 
 export default Canvas;

@@ -26,7 +26,7 @@ $button-transition-easing: 0.25s ease-in-out;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.85);
   cursor: pointer;
   padding: 1em;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .canvas-button--pause {
   opacity: 0;
@@ -34,4 +34,13 @@ $button-transition-easing: 0.25s ease-in-out;
 }
 .canvas-container:hover .canvas-button--pause {
   opacity: 1;
+}
+
+.canvas-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  height: 20rem;
 }

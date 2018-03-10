@@ -16,7 +16,14 @@ const IndexPage = ({ data }) => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedCanvas caption="Multi-function scene">
-        <Shader1 fallback={ <Img sizes={ data.shader1Fallback.sizes } /> } />
+        <Shader1
+          fallback={
+            <Img
+              className="canvas-background-image"
+              sizes={ data.shader1Fallback.sizes }
+            />
+          }
+        />
       </AnnotatedCanvas>
       <Typography.PageTitle>
         Animating Functions of Improved 3D Perlin Noise
@@ -116,13 +123,34 @@ const IndexPage = ({ data }) => (
     </ReadableSection>
     <ReadableSection>
       <AnnotatedCanvas caption="Perlin's standard turbulence">
-        <Shader2 />
+        <Shader2
+          fallback={
+            <Img
+              className="canvas-background-image"
+              sizes={ data.shader2Fallback.sizes }
+            />
+          }
+        />
       </AnnotatedCanvas>
       <AnnotatedCanvas caption="Oscillator">
-        <Shader3 />
+        <Shader3
+          fallback={
+            <Img
+              className="canvas-background-image"
+              sizes={ data.shader3Fallback.sizes }
+            />
+          }
+        />
       </AnnotatedCanvas>
       <AnnotatedCanvas caption="Toon shaded / Heatmap">
-        <Shader4 />
+        <Shader4
+          fallback={
+            <Img
+              className="canvas-background-image"
+              sizes={ data.shader4Fallback.sizes }
+            />
+          }
+        />
       </AnnotatedCanvas>
       <AnnotatedImage caption="Jupiter-esque: Old CPU implementation, src RIP">
         <Img sizes={ data.jupiter.sizes } />
@@ -135,7 +163,16 @@ export default IndexPage;
 
 export const query = graphql`
   query PerlinIndexQuery {
-    shader1Fallback: imageSharp(id: { regex: "/img/gpu-perlin1.jpg/" }) {
+    shader1Fallback: imageSharp(id: { regex: "/img/gpu-perlin1.png/" }) {
+      ...LabImageFragment
+    }
+    shader2Fallback: imageSharp(id: { regex: "/img/gpu-perlin2.png/" }) {
+      ...LabImageFragment
+    }
+    shader3Fallback: imageSharp(id: { regex: "/img/gpu-perlin3.png/" }) {
+      ...LabImageFragment
+    }
+    shader4Fallback: imageSharp(id: { regex: "/img/gpu-perlin4.png/" }) {
       ...LabImageFragment
     }
     jupiter: imageSharp(id: { regex: "/img/cpu-perlin2.jpg/" }) {

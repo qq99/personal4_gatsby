@@ -15,15 +15,6 @@ class PerlinBase extends React.Component {
     this.state = { ctx: null };
   }
 
-  componentWillUnmount() {
-    // this.paused = true;
-  }
-
-  @autobind
-  onFail() {
-    // this.paused = true;
-  }
-
   @autobind
   onWebgl(canvas, gl, shaderProgram) {
     this.canvas = canvas;
@@ -156,41 +147,6 @@ class PerlinBase extends React.Component {
     this.time = 0.0;
   }
 
-  @autobind
-  onPlay() {
-    this.lastTimestamp = performance.now();
-    // this.paused = false;
-    this.animationFrame = requestAnimationFrame(this.animate);
-  }
-
-  @autobind
-  onPause() {
-    // this.paused = true;
-    cancelAnimationFrame(this.animationFrame);
-  }
-
-  @autobind
-  animate(timestamp) {
-    // if (this.paused) {
-    //   return;
-    // }
-
-    const dTime = (timestamp - this.lastTimestamp) / 1000;
-    this.time += dTime;
-    this.lastTimestamp = timestamp;
-
-    let darkness = this.drawContext.darkness;
-    if (darkness >= 1.0) {
-      darkness = 1.0;
-    } else {
-      darkness += 0.01;
-    }
-    this.drawContext.darkness = darkness;
-
-    this.drawScene();
-    this.animationFrame = requestAnimationFrame(this.animate);
-  }
-
   drawScene() {
     const canvas = this.canvas;
     const gl = this.gl;
@@ -248,15 +204,28 @@ class PerlinBase extends React.Component {
     );
   }
 
+  @autobind
+  onAnimate(_timestamp, _dTime, animationTime) {
+    this.time = animationTime;
+
+    let darkness = this.drawContext.darkness;
+    if (darkness >= 1.0) {
+      darkness = 1.0;
+    } else {
+      darkness += 0.01;
+    }
+    this.drawContext.darkness = darkness;
+
+    this.drawScene();
+  }
+
   render() {
     return (
       <Canvas
         fallback={this.props.fallback}
         shaders={this.props.shaders}
-        onFail={this.onFail}
         onWebgl={this.onWebgl}
-        onPlay={this.onPlay}
-        onPause={this.onPause}
+        onAnimate={this.onAnimate}
       />
     );
   }
