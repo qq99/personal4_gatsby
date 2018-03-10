@@ -219,6 +219,7 @@ class CrazyEye extends React.Component {
             type: "fragment"
           }
         ]}
+        showFullscreenControls={true}
         autoplay={true}
         showPlayControls={false}
         onWebgl={this.onWebgl.bind(this)}

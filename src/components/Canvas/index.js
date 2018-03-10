@@ -1,6 +1,7 @@
 import React from "react";
 import autobind from "autobind-decorator";
 import debounce from "lodash/debounce";
+import screenfull from "screenfull";
 
 import "./canvas.scss";
 
@@ -17,6 +18,7 @@ class Canvas extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.debouncedResizeCanvas);
+
     if (this.props.autoplay) {
       this.play();
     }
@@ -29,6 +31,29 @@ class Canvas extends React.Component {
   componentWillUnmount() {
     this.pause();
     window.removeEventListener("resize", this.debouncedResizeCanvas);
+  }
+
+  @autobind
+  onFullscreenChange() {
+    if (
+      screenfull.element &&
+      screenfull.element !== this.refs.canvasContainer
+    ) {
+      return;
+    }
+    this.setState({ fullscreen: screenfull.isFullscreen });
+  }
+
+  @autobind
+  enterFullscreen() {
+    screenfull.request(this.refs.canvasContainer);
+    this.setState({ fullscreen: true });
+  }
+
+  @autobind
+  exitFullscreen() {
+    screenfull.exit();
+    this.setState({ fullscreen: false });
   }
 
   initializeWebgl() {
@@ -75,6 +100,8 @@ class Canvas extends React.Component {
     }
     this.resizeCanvas();
 
+    screenfull.on("change", this.onFullscreenChange);
+
     this.lastTimestamp = performance.now();
 
     this.setState({ status: "play" });
@@ -91,6 +118,8 @@ class Canvas extends React.Component {
     if (this.props.onPause) {
       this.props.onPause();
     }
+
+    screenfull.off("change", this.onFullscreenChange);
   }
 
   @autobind
@@ -172,6 +201,34 @@ class Canvas extends React.Component {
     return <div className="canvas-playback-controls">{controls}</div>;
   }
 
+  showFullscreenControls() {
+    return (
+      this.props.showFullscreenControls &&
+      this.state.status === "play" &&
+      screenfull.enabled
+    );
+  }
+
+  renderFullscreenControls() {
+    let controls;
+
+    if (this.state.fullscreen) {
+      controls = (
+        <div className="canvas-button" onClick={this.exitFullscreen}>
+          <i className="fa fa-arrows-alt" /> Exit Fullscreen
+        </div>
+      );
+    } else {
+      controls = (
+        <div className="canvas-button" onClick={this.enterFullscreen}>
+          <i className="fa fa-arrows-alt" /> Enter Fullscreen
+        </div>
+      );
+    }
+
+    return <div className="canvas-fullscreen-controls">{controls}</div>;
+  }
+
   render() {
     let pauseControls;
 
@@ -179,8 +236,9 @@ class Canvas extends React.Component {
     }
 
     return (
-      <div className="canvas-container">
+      <div ref="canvasContainer" className="canvas-container">
         {this.props.showPlayControls ? this.renderPlaybackControls() : null}
+        {this.showFullscreenControls() ? this.renderFullscreenControls() : null}
         <div
           className="fallback"
           style={{
@@ -204,7 +262,8 @@ class Canvas extends React.Component {
 
 Canvas.defaultProps = {
   autoplay: false,
-  showPlayControls: true
+  showPlayControls: true,
+  showFullscreenControls: false
 };
 
 export default Canvas;

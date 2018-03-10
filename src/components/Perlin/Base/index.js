@@ -226,6 +226,7 @@ class PerlinBase extends React.Component {
         shaders={this.props.shaders}
         onWebgl={this.onWebgl}
         onAnimate={this.onAnimate}
+        showFullscreenControls={true}
       />
     );
   }

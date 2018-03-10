@@ -324,6 +324,7 @@ class BackgroundBumps extends React.Component {
         ]}
         autoplay={true}
         showPlayControls={false}
+        showFullscreenControls={true}
         onPlay={this.onPlay}
         onPause={this.onPause}
         onAnimate={this.onAnimate}
