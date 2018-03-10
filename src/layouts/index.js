@@ -13,24 +13,29 @@ const TemplateWrapper = ({ children }) => (
       title="Anthony Cameron"
       meta={ [
         { name: "author", content: "Anthony Cameron" },
-        { name: "description", content: "Everything you need to know about Anthony Cameron: A collection of personal projects, featuring WebGL, GLSL shaders, JavaScript, C++.  A sample of my portfolio.  My resume.  My philosophy." },
-        { name: "viewport", content: "width=device-width,initial-scale=1" },
+        {
+          name: "description",
+          content:
+            "Everything you need to know about Anthony Cameron: A collection of personal projects, featuring WebGL, GLSL shaders, JavaScript, C++.  A sample of my portfolio.  My resume.  My philosophy."
+        },
+        { name: "viewport", content: "width=device-width,initial-scale=1" }
       ] }
     >
-      <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet' />
+      <link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
     </Helmet>
-    <div className='main-container'>
+    <div className="main-container">
       <Header />
-      <div className="main-content">
-        {children()}
-      </div>
+      <div className="main-content">{children()}</div>
       <Footer />
     </div>
   </div>
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func
 };
 
 export default TemplateWrapper;

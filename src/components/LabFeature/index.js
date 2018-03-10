@@ -6,7 +6,9 @@ const LabFeature = (props) => (
   <div className="lab-feature">
     <div className="lab-image">
       <Link to={ props.to }>
-        <AnnotatedImage src={ props.img } />
+        <AnnotatedImage>
+          { props.image ? props.image : "" }
+        </AnnotatedImage>
       </Link>
     </div>
     <div className='lab-description'>

@@ -1,19 +1,66 @@
 import React from "react";
+import autobind from "autobind-decorator";
+import debounce from "lodash/debounce";
+import screenfull from "screenfull";
 
 import "./canvas.scss";
 
 class Canvas extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      failure: false
+      initialized: false,
+      status: "uninitialized"
     };
+    this.debouncedResizeCanvas = debounce(this.resizeCanvas, 50);
+    this.time = 0;
   }
 
   componentDidMount() {
+    window.addEventListener("resize", this.debouncedResizeCanvas);
+
+    if (this.props.autoplay) {
+      this.play();
+    }
+  }
+
+  componentDidUpdate() {
+    this.resizeCanvas();
+  }
+
+  componentWillUnmount() {
+    this.pause();
+    window.removeEventListener("resize", this.debouncedResizeCanvas);
+  }
+
+  @autobind
+  onFullscreenChange() {
+    if (
+      screenfull.element &&
+      screenfull.element !== this.refs.canvasContainer
+    ) {
+      return;
+    }
+    this.setState({ fullscreen: screenfull.isFullscreen });
+  }
+
+  @autobind
+  enterFullscreen() {
+    screenfull.request(this.refs.canvasContainer);
+    this.setState({ fullscreen: true });
+  }
+
+  @autobind
+  exitFullscreen() {
+    screenfull.exit();
+    this.setState({ fullscreen: false });
+  }
+
+  initializeWebgl() {
     const canvas = this.refs.canvas;
 
     try {
+      // throw "foo"; // test error handling
       let gl;
       gl = canvas.getContext("webgl", { failIfMajorPerformanceCaveat: true });
       gl.viewportWidth = canvas.width;
@@ -26,13 +73,69 @@ class Canvas extends React.Component {
         gl.useProgram(shaderProgram);
         this.props.onWebgl(canvas, gl, shaderProgram);
       } else {
-        this.setState({failure: true});
-        this.props.onFail();
+        this.fail();
       }
+
+      this.setState({ initialized: true, status: "paused" });
     } catch (e) {
-      this.setState({failure: true});
-      this.props.onFail();
+      this.fail();
       throw e;
+    }
+  }
+
+  @autobind
+  resizeCanvas() {
+    const canvas = this.refs ? this.refs.canvas : null;
+    if (!canvas) {
+      return;
+    }
+    canvas.height = canvas.clientHeight;
+    canvas.width = canvas.clientWidth;
+  }
+
+  @autobind
+  play() {
+    if (!this.state.initialized) {
+      this.initializeWebgl();
+    }
+    this.resizeCanvas();
+
+    screenfull.on("change", this.onFullscreenChange);
+
+    this.lastTimestamp = performance.now();
+
+    this.setState({ status: "play" });
+    if (this.props.onPlay) {
+      this.props.onPlay();
+    }
+    this.animationFrame = requestAnimationFrame(this.animate);
+  }
+
+  @autobind
+  pause() {
+    cancelAnimationFrame(this.animationFrame);
+    this.setState({ status: "paused" });
+    if (this.props.onPause) {
+      this.props.onPause();
+    }
+
+    screenfull.off("change", this.onFullscreenChange);
+  }
+
+  @autobind
+  animate(timestamp) {
+    const dTime = (timestamp - this.lastTimestamp) / 1000;
+    this.time += dTime;
+    this.lastTimestamp = timestamp;
+
+    this.props.onAnimate(timestamp, dTime, this.time);
+    this.animationFrame = requestAnimationFrame(this.animate);
+  }
+
+  fail() {
+    this.setState({ status: "failure" });
+    if (this.props.onFail) {
+      this.props.onFail();
     }
   }
 
@@ -43,8 +146,7 @@ class Canvas extends React.Component {
 
     const shaderProgram = gl.createProgram();
 
-
-    shaders.map((shaderProp) => {
+    shaders.map(shaderProp => {
       const { type, code } = shaderProp;
       let shaderType;
       if (type == "fragment") {
@@ -76,21 +178,92 @@ class Canvas extends React.Component {
     return shaderProgram;
   }
 
-  render() {
+  renderPlaybackControls() {
+    let controls;
+
+    if (["paused", "uninitialized"].includes(this.state.status)) {
+      controls = (
+        <div className="canvas-button" onClick={this.play}>
+          <i className="fa fa-play" />
+        </div>
+      );
+    } else if (this.state.status === "play") {
+      controls = (
+        <div
+          className="canvas-button canvas-button--pause"
+          onClick={this.pause}
+        >
+          <i className="fa fa-pause" />
+        </div>
+      );
+    }
+
+    return <div className="canvas-playback-controls">{controls}</div>;
+  }
+
+  showFullscreenControls() {
     return (
-      <div className="canvas-container">
-        <div className="fallback" style={{
-          backgroundImage: `url('${this.props.fallback}')`,
-          display: this.state.failure ? "block" : "none",
-        }}
-        />
-        <canvas ref="canvas" style={{
-          display: this.state.failure ? "none" : "block",
-        }}
+      this.props.showFullscreenControls &&
+      this.state.status === "play" &&
+      screenfull.enabled
+    );
+  }
+
+  renderFullscreenControls() {
+    let controls;
+
+    if (this.state.fullscreen) {
+      controls = (
+        <div className="canvas-button" onClick={this.exitFullscreen}>
+          <i className="fa fa-arrows-alt" /> Exit Fullscreen
+        </div>
+      );
+    } else {
+      controls = (
+        <div className="canvas-button" onClick={this.enterFullscreen}>
+          <i className="fa fa-arrows-alt" /> Enter Fullscreen
+        </div>
+      );
+    }
+
+    return <div className="canvas-fullscreen-controls">{controls}</div>;
+  }
+
+  render() {
+    let pauseControls;
+
+    if (this.state.initialized) {
+    }
+
+    return (
+      <div ref="canvasContainer" className="canvas-container">
+        {this.props.showPlayControls ? this.renderPlaybackControls() : null}
+        {this.showFullscreenControls() ? this.renderFullscreenControls() : null}
+        <div
+          className="fallback"
+          style={{
+            display: ["failure", "uninitialized"].includes(this.state.status)
+              ? "block"
+              : "none"
+          }}
+        >
+          {this.props.fallback ? this.props.fallback : null}
+        </div>
+        <canvas
+          ref="canvas"
+          style={{
+            display: this.state.initialized ? "block" : "none"
+          }}
         />
       </div>
     );
   }
 }
+
+Canvas.defaultProps = {
+  autoplay: false,
+  showPlayControls: true,
+  showFullscreenControls: false
+};
 
 export default Canvas;
