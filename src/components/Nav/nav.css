@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+.social-link,
 .nav-link {
   margin-right: 1rem;
   white-space: nowrap;

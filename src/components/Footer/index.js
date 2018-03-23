@@ -16,19 +16,35 @@ const Footer = () => (
   <footer className="primary-footer screen-only">
     <ReadableSection>
       <Nav>
-        <a href="https://github.com/qq99" target="_blank" title="Github">
+        <a
+          className="social-link"
+          href="https://github.com/qq99"
+          target="_blank"
+          title="Github"
+        >
           <FontAwesomeIcon icon={ faGithub } />
         </a>
 
-        <a href="http://codepen.io/qq99" target="_blank" title="CodePen">
+        <a
+          className="social-link"
+          href="http://codepen.io/qq99"
+          target="_blank"
+          title="CodePen"
+        >
           <FontAwesomeIcon icon={ faCodepen } />
         </a>
 
-        <a href="https://twitter.com/dontqq" target="_blank" title="Twitter">
+        <a
+          className="social-link"
+          href="https://twitter.com/dontqq"
+          target="_blank"
+          title="Twitter"
+        >
           <FontAwesomeIcon icon={ faTwitter } />
         </a>
 
         <a
+          className="social-link"
           href="http://ca.linkedin.com/in/anthonycameron/"
           target="_blank"
           title="LinkedIn"
