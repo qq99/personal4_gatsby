@@ -1,4 +1,4 @@
-@import './topography.scss';
+@import "./topography.scss";
 
 $background: white;
 $link-color: rgb(41, 157, 221);
@@ -7,12 +7,14 @@ $font-size: 18px;
 $font-color: #222;
 $font-color-subdued: rgb(123, 123, 123);
 
-code, pre {
+code,
+pre {
   font-family: monospace;
   font-size: 1.4em;
 }
 
-html, body {
+html,
+body {
   font-size: $font-size;
   background: $background;
 }
@@ -20,7 +22,8 @@ html, body {
 html {
   line-height: 1.75em;
   font-size: $font-size;
-  font-family: "Fira Sans", Ubuntu, Roboto, "Helvetica Neue", Helvetica, arial, freesans, sans-serif;
+  font-family: "Fira Sans", Ubuntu, Roboto, "Helvetica Neue", Helvetica, arial,
+    freesans, sans-serif;
 }
 
 body {
@@ -47,29 +50,38 @@ a {
   }
 }
 
-.primary-header, .primary-footer {
-  z-index: 1;
+.primary-header,
+.primary-footer {
+  z-index: 1000;
 }
 
-figure, img {
+figure,
+img {
   max-width: 100%;
 }
 
-h1, h2, h3, h4, h5, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   margin: 1em 0;
 }
 p {
   text-align: justify;
 }
 
-ul, ol {
+ul,
+ol {
   li {
     margin-bottom: 0;
   }
 }
 
 // todo: delete page-tagline
-.typography--subdued, .page-tagline {
+.typography--subdued,
+.page-tagline {
   color: lighten($font-color, 30%);
   font-size: 0.8em;
 }
@@ -162,13 +174,14 @@ ul, ol {
     align-items: center;
   }
 
-  .primary-header, .primary-footer {
+  .primary-header,
+  .primary-footer {
     background-image: url(../img/topography.svg);
   }
 
   .main-content {
     grid-area: main;
-    box-shadow: -1px -1px 5px rgba(0,0,0,0.1);
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.1);
     z-index: 3;
   }
   .navigation {
