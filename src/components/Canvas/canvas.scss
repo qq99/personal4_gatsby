@@ -22,11 +22,26 @@ $button-transition-easing: 0.25s ease-in-out;
   transform: translate(-50%, -50%);
   font-size: 2em;
 }
+
+$button-dropshadow: 1px 1px 4px rgba(0, 0, 0, 0.85);
 .canvas-button {
   color: white;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.85);
+  text-shadow: $button-dropshadow;
   cursor: pointer;
   padding: 0.5em 1em;
+  svg {
+    filter: drop-shadow($button-dropshadow);
+  }
+
+  path {
+    transition: all 0.5s ease-in-out;
+  }
+
+  &:hover {
+    path {
+      fill: #ffffc3;
+    }
+  }
 }
 .canvas-button--pause {
   opacity: 0;

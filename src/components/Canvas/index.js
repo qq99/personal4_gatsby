@@ -3,6 +3,13 @@ import autobind from "autobind-decorator";
 import debounce from "lodash/debounce";
 import screenfull from "screenfull";
 
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faPause,
+  faArrowsAlt
+} from "@fortawesome/fontawesome-free-solid";
+
 import "./canvas.scss";
 
 class Canvas extends React.Component {
@@ -184,7 +191,7 @@ class Canvas extends React.Component {
     if (["paused", "uninitialized"].includes(this.state.status)) {
       controls = (
         <div className="canvas-button" onClick={this.play}>
-          <i className="fa fa-play" />
+          <FontAwesomeIcon icon={faPlay} />
         </div>
       );
     } else if (this.state.status === "play") {
@@ -193,7 +200,7 @@ class Canvas extends React.Component {
           className="canvas-button canvas-button--pause"
           onClick={this.pause}
         >
-          <i className="fa fa-pause" />
+          <FontAwesomeIcon icon={faPause} />
         </div>
       );
     }
@@ -215,13 +222,13 @@ class Canvas extends React.Component {
     if (this.state.fullscreen) {
       controls = (
         <div className="canvas-button" onClick={this.exitFullscreen}>
-          <i className="fa fa-arrows-alt" /> Exit Fullscreen
+          <FontAwesomeIcon icon={faArrowsAlt} /> Exit Fullscreen
         </div>
       );
     } else {
       controls = (
         <div className="canvas-button" onClick={this.enterFullscreen}>
-          <i className="fa fa-arrows-alt" /> Enter Fullscreen
+          <FontAwesomeIcon icon={faArrowsAlt} /> Enter Fullscreen
         </div>
       );
     }

@@ -2,6 +2,14 @@ import React from "react";
 import ReadableSection from "../ReadableSection";
 import Nav from "../Nav";
 
+import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faCodepen,
+  faTwitter,
+  faLinkedin
+} from "@fortawesome/fontawesome-free-brands";
+
 import "./footer.css";
 
 const Footer = () => (
@@ -9,15 +17,15 @@ const Footer = () => (
     <ReadableSection>
       <Nav>
         <a href="https://github.com/qq99" target="_blank" title="Github">
-          <i className="fa fa-github" />
+          <FontAwesomeIcon icon={ faGithub } />
         </a>
 
         <a href="http://codepen.io/qq99" target="_blank" title="CodePen">
-          <i className="fa fa-codepen" />
+          <FontAwesomeIcon icon={ faCodepen } />
         </a>
 
         <a href="https://twitter.com/dontqq" target="_blank" title="Twitter">
-          <i className="fa fa-twitter" />
+          <FontAwesomeIcon icon={ faTwitter } />
         </a>
 
         <a
@@ -25,7 +33,7 @@ const Footer = () => (
           target="_blank"
           title="LinkedIn"
         >
-          <i className="fa fa-linkedin" />
+          <FontAwesomeIcon icon={ faLinkedin } />
         </a>
       </Nav>
     </ReadableSection>
