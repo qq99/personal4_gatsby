@@ -6,7 +6,7 @@ import Nav from "../Nav";
 import "./header.css";
 
 const Header = () => (
-  <header className="primary-header">
+  <header className="primary-header screen-only">
     <ReadableSection>
       <Nav>
         <Link to="/" className="nav-link" activeClassName="selected" exact>

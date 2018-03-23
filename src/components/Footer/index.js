@@ -5,23 +5,27 @@ import Nav from "../Nav";
 import "./footer.css";
 
 const Footer = () => (
-  <footer className="primary-footer">
+  <footer className="primary-footer screen-only">
     <ReadableSection>
       <Nav>
-        <a className='iconal external different-context' href='https://github.com/qq99' target='_blank' title='Github'>
-          <i className='fa fa-github'></i>
+        <a href="https://github.com/qq99" target="_blank" title="Github">
+          <i className="fa fa-github" />
         </a>
 
-        <a className='iconal external different-context' href='http://codepen.io/qq99' target='_blank' title='CodePen'>
-          <i className='fa fa-codepen'></i>
+        <a href="http://codepen.io/qq99" target="_blank" title="CodePen">
+          <i className="fa fa-codepen" />
         </a>
 
-        <a className='iconal external different-context' href='https://twitter.com/dontqq' target='_blank' title='Twitter'>
-          <i className='fa fa-twitter'></i>
+        <a href="https://twitter.com/dontqq" target="_blank" title="Twitter">
+          <i className="fa fa-twitter" />
         </a>
 
-        <a className='iconal external different-context' href='http://ca.linkedin.com/in/anthonycameron/' target='_blank' title='LinkedIn'>
-          <i className='fa fa-linkedin'></i>
+        <a
+          href="http://ca.linkedin.com/in/anthonycameron/"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <i className="fa fa-linkedin" />
         </a>
       </Nav>
     </ReadableSection>

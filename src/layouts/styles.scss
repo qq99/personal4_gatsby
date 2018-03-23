@@ -125,6 +125,25 @@ ol {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .primary-header {
+    position: static;
+  }
+  .navigation {
+    display: block;
+  }
+  .nav-link {
+    display: block;
+    text-align: center;
+    margin: 0.5rem;
+    padding: 0.5rem;
+
+    &.selected {
+      background: #efefef;
+    }
+  }
+}
+
 @media screen and (min-width: 80*$font-size) {
   .two-column-grid {
     display: grid;
@@ -197,6 +216,21 @@ ol {
 @media only screen {
   .print-only {
     display: none;
+  }
+}
+
+@media only print {
+  html,
+  body {
+    font-size: 13px;
+  }
+
+  .screen-only {
+    display: none;
+  }
+
+  a {
+    color: inherit !important;
   }
 }
 
