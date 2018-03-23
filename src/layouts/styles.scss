@@ -194,6 +194,12 @@ ol {
   }
 }
 
+@media only screen {
+  .print-only {
+    display: none;
+  }
+}
+
 .resume__job {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
