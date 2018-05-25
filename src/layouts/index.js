@@ -30,6 +30,10 @@ const TemplateWrapper = ({ children }) => (
           content: metaDescription
         },
         {
+          name: "google-site-verification",
+          content: "lKOTFc8NabMteeKOno8uNXPXiL4ojDd9slzRRf7ocCc"
+        },
+        {
           name: "og:image",
           content: metaImg
         },
