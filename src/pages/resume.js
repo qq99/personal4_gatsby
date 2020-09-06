@@ -13,8 +13,10 @@ const IndexPage = () => (
       <Typography.PageTitle>Hi, I'm Anthony Cameron</Typography.PageTitle>
       <section id="title">
         <p>
-          I'm a software developer with a passion for the web and computer
-          graphics.
+          I'm a full stack software developer with a passion for the web and
+          computer graphics.
+          <br />
+          I'm user-focused and care deeply about whatever I work on.
         </p>
         <div className="print-only">
           <a href="mailto: ar.cameron@gmail.com">ar.cameron@gmail.com</a>
@@ -28,26 +30,21 @@ const IndexPage = () => (
         <Typography.PageSubtitle>Work Experience</Typography.PageSubtitle>
         <div className="resume__job">
           <Resume.Position
-            jobTitle="Senior Software Developer"
-            employers={ [
+            jobTitle="Software Developer → Senior Software Developer (L5→L6)"
+            employers={[
               {
                 name: "Shopify",
                 website: "https://www.shopify.com"
               }
-            ] }
+            ]}
             start="Oct 2013"
             stop="Now"
           />
           <p>
-            In my first year, I worked primarily on the admin team &ndash; the
-            section store owners use &ndash; implementing features, fixing bugs,
-            filing issues, and writing maintenance tasks. Since Shopify
-            encourages a strong culture of ownership, I'm always looking out for
-            potential problems regarding user experience across project and team
-            boundaries.
-          </p>
-          <p>
-            I worked with the client-side MVC framework{" "}
+            In my first year I worked primarily on the admin team &ndash; the
+            part of the app that merchants use &ndash; implementing features,
+            fixing bugs, filing issues, and writing maintenance tasks. I worked
+            with the client-side MVC framework{" "}
             <a
               href="http://batmanjs.org/"
               target="_blank"
@@ -55,26 +52,27 @@ const IndexPage = () => (
             >
               Batman.js
             </a>{" "}
-            before we started to move to a custom in-house server-client hybrid
-            approach. This launched me from no previous CoffeeScript experience
-            to relative expertise, imparting in me a thorough love of the
-            language.
+            before Shopify started to move to a custom in-house server-client
+            hybrid approach. At this time, most of our work was done in
+            coffeescript.
           </p>
           <p>
-            My role shifted from front-end to full-stack in our transition: As a
-            team of 8~10, we've developed a powerful system that allows the
-            server to be the primary source of truth in rendering, but still
-            gives us enough flexibility that at first glance, you might think
-            we've made a single-page app. It drastically reduced our mean
-            development time for new features, and greatly simplified bug fixes.
-            Everybody loved it, and{" "}
+            My role shifted from frontend closer to backend in this transition:
+            I worked with a team of 8~10 to develop a powerful system that
+            allows the server to be the primary source of truth in rendering,
+            but still allowed enough flexibility that, at first glance, you
+            might think it was a single-page app. It drastically reduced the
+            mean development time for new features, and greatly simplified bug
+            fixes. It was a huge success &ndash;{" "}
             <a
               href="https://www.shopify.ca/technology/15646068-rebuilding-the-shopify-admin-improving-developer-productivity-by-deleting-28-000-lines-of-javascript"
               title="Rebuilding the Shopify Admin: Improving Developer Productivity by Deleting 28,000 lines of JavaScript"
               target="_blank"
             >
-              we were quite proud of it.
-            </a>
+              everybody loved it!
+            </a>{" "}
+            I learned Ruby on Rails for the first time, and quickly became
+            proficient.
           </p>
           <p>
             I loved our new web paradigm so much that I extracted it into 2 open
@@ -93,64 +91,197 @@ const IndexPage = () => (
               target="_blank"
             >
               TurboGraft
-            </a>.
+            </a>
+            . I refined patterns and strategies around partial page refreshing,
+            resulting in new patterns that were followed until the technology
+            was obsoleted.
           </p>
           <p>
-            After that, I was working in our new Waterloo office on Plus
-            engineering efforts. I was responding to a variety of engineering
-            efforts that affect our Plus merchants: new features, bug triage /
-            acceleration. I was responsible for building out most of the
-            infrastructure our sales team used to do their job at the time, and
-            also created some in-office TV dashboards that displayed live sales
-            data (among other things).
+            Around 2015, I was selected to work at our new Waterloo office on
+            Shopify Plus. I was responsible for building out most of the
+            infrastructure our sales team used to do their job, and also created
+            a set of in-office TV dashboards that displayed live sales data and
+            metrics, celebrations of new closed deals, general announcements,
+            and new hires.
           </p>
           <p>
             Since around May 2016, I've been 100% working from home in Waterloo.
-            I spent approximately 1 year in the Shipping team, and delivered: an
-            improved shipping zones UI, and allowing all Shopify merchants
-            access to{" "}
+            I spent approximately 1 year working with the Shipping team where I
+            delivered an improved shipping zones UI within admin. I led a
+            project to allow all Shopify merchants access to{" "}
             <a
               href="https://www.shopify.ca/blog/calculated-shipping-rates-for-everyone"
               title="Shopify Shipping Brings Calculated Rates to All Shopify Plans "
               target="_blank"
             >
               Shopify Shipping carrier-calculated rates
-            </a>. I also championed our{" "}
+            </a>{" "}
+            and worked closely with marketing to position the feature. I also
+            led the technical development of the{" "}
             <a
               href="https://www.shopify.ca/blog/bulk-label-printing"
               title="Introducing Bulk Label Printing for Shopify Shipping"
               target="_blank"
             >
-              bulk label printing
+              bulk shipping label printing
             </a>{" "}
             project, a new user flow that allows merchants to buy & print
-            multiple shipping labels at a time.
+            multiple shipping labels at a time. This flow also generalized to
+            the non-bulk flow, which simplified and unified the shipping label
+            purchasing experiences. This system has since processed hundreds of
+            thousands of shipping labels without incident. It was around this
+            time that I began to take on a higher level technical role, writing
+            and reviewing technical design documents for projects, starting with
+            the documents for the bulk shipping label project.
           </p>
           <p>
-            Nowadays, some Shipping teammates and I have splintered off to form
-            a new team, but I'm not permitted to speak too much about it at this
-            time!
+            With the success of those projects, I achieved the title of Senior
+            Developer (L6). The company formed a new team focused on
+            Fulfillment, and I was asked to join. Working together with the
+            Inventory team, we were responsible for bringing{" "}
+            <a
+              href="https://www.shopify.ca/retail/locations-for-shopify"
+              title="Shopify’s Newest Feature Helps Retailers Track Inventory Across Multiple Locations"
+            >
+              multi-location inventory
+            </a>{" "}
+            support to fulfillment concepts. As part of this process, I led the
+            technical efforts on revamping the UI of the most-visited page in
+            admin &ndash; the "order details" page &ndash; to support the
+            intricacies of this new paradigm. I was the liaison for the API
+            support team, and helped to explain new API limitations. I also
+            instrumented code to find apps that were making legacy API calls so
+            that they could be addressed. Overall, this was a deeply complicated
+            and draining migration; it was often referred to as "open heart
+            surgery" internally.
           </p>
+          <p>
+            Around 2018, I designed and implemented a system to print PDF
+            packing slips for orders within the admin. This project was
+            completed with a mix of the now-older Twine & TurboGraft stack, as
+            well as a React WYSIWYG template editor. My past experience with
+            Splunk allowed me to create very powerful real-time Splunk
+            dashboards to track the metrics for this project as it launched,
+            such as e.g.: success rates of HTTP endpoints / background jobs, a
+            real-time table for any exceptions encountered.
+          </p>
+          <p>
+            Shopify used beta-flag driven development for quite a long time, but
+            I began to advocate strongly to colleagues in my product line about
+            combining these with opt-out beta flags, a concept that hadn't seen
+            any real use until then. Having demonstrated their utility in some
+            projects I was involved in, now, many new features have also decided
+            to use an opt-out flag to give developers an escape hatch: having
+            the ability to rollback the launch of a feature at a per-tenant
+            level instead of rolling it back for <em>everyone</em> was very
+            empowering. This has already saved us from some minor nightmares :)
+          </p>
+          <p>
+            In April of 2019, I left the Fulfillment team to renew my passion
+            for front-end development and focus on React development full-time.
+            I transferred to the logistics web team. Having had so many years of
+            backend development made me extremely flexible, putting me into a
+            unique position where I could tackle issues that others didn't have
+            the context for and struggled with.
+          </p>
+          <p>
+            I authored React hooks for others in the organization to consume,
+            e.g., a hook to display a flash message even after the consuming
+            component unmounts, a hook for indicating a progress cursor, a
+            generic <code>usePoller</code> hook to define polling on an
+            arbitrary function. I focused a lot on making changes that help to
+            unblock developers within the org, e.g., adjusting a mutation so
+            that anyone could call it, allowing us to properly and permanently
+            persist the dismissal state of banners within the admin. What
+            started as a developer experience tweak led to actual user
+            experience improvements! I also contributed new features to
+            components in{" "}
+            <a
+              href="https://polaris.shopify.com/"
+              title="The Shopify Polaris documentation website"
+              target="_blank"
+            >
+              Polaris
+            </a>
+            , making things more convenient for consumers of this library.
+          </p>
+          <p>
+            I've laid out the coding foundation for quite a few{" "}
+            <a
+              href="https://docs.ruby-lang.org/en/2.3.0/ERB.html"
+              title="Docs for embedded ruby templating"
+              target="_blank"
+            >
+              ERB
+            </a>{" "}
+            to React migrations; Shopify is slowly but surely converting all of
+            the Twine & TurboGraft pages to React. I pioneered a new process for
+            our React-ifications by performing a few comprehensive ERB audits,
+            and wrote up the results in documents to share with the teams,
+            including permalinks to relevant code points and hints to possible
+            re-implementations. Every time this process has been used, we've
+            uncovered hidden scope/features much earlier, resulting in less
+            surprises (no hidden icebergs).
+          </p>
+          <p>
+            In 2020, I was on a ~3 month secondment with our Checkout team. In
+            this time, I was able to unify our frontend and backend teams and
+            get them working closer together by demonstrating good inter-team
+            communication. I was able to unify our frontend and backend code by
+            designing a layer to progressively replace our faked dummy data with
+            the implemented parts of our API, a task I believe I was rather
+            uniquely positioned to do: I was able to talk with backend
+            developers using the same vocabulary that they were familiar with,
+            and I was able to unblock myself when backend issues arose in the
+            integration. I designed a server-side hydration layer to provide
+            initial data to our JS app from our Rails rendered page, as well as
+            a scheme to manage and persist user state sanely and safely in{" "}
+            <code>localStorage</code> and invalidate it properly when it needs
+            to be cleared.
+          </p>
+          <p>
+            I'm the kind of person that likes to have a pulse on as many ongoing
+            things as possible, juggling many spinning plates across different
+            domains (technical, social), and I really embraced that at Shopify.
+            I love working closely with UX to iterate with them and build the
+            best user experience while balancing and informing them about
+            technical requirements and limitations. I'm the kind of person that
+            doesn't like to remain idle throughout the work day because it
+            drives me nuts.
+          </p>
+          <p>
+            Throughout my tenure, I regularly participated in on-call / ATC
+            rotations, and throughout the past year, I've been a mentor in the
+            developer mentorship program. I'm known as a go-to person for
+            technical consulting.
+          </p>
+          <h4>Skills / Familiarities</h4>
+          <ul>
+            <li>Ruby, Ruby on Rails</li>
+            <li>TypeScript / JavaScript / CoffeeScript</li>
+            <li>React (functional, hooks, class-based), Preact</li>
+            <li>Splunk, Datadog, Bugsnag</li>
+          </ul>
         </div>
         <div className="resume__job">
           <Resume.Position
             jobTitle="UI Developer"
-            employers={ [
+            employers={[
               {
                 name: "Exinda Networks",
                 website: "https://www.exinda.com"
               }
-            ] }
+            ]}
             start="Aug 2012"
             stop="Aug 2013"
           />
           <p>
-            At Exinda, I was working on a large-scope single-page JavaScript
-            application. We used Backbone to structure our core application,
+            At Exinda, I worked on a large-scope single-page JavaScript
+            application. I used Backbone to structure our core application,
             Underscore and jQuery for developer convenience, and Handlebars and
             i18n.js for templating. I was deeply involved in the design and
             implementation of many interactive modules (e.g., line and bar
-            graphs) at the core of the application. We unit tested our frontend
+            graphs) at the core of the application. I unit tested our frontend
             with Sinon, Chai, Mocha, and Jasmine. I wrote many acceptance tests
             using Cucumber (Capybara & Watir).
           </p>
@@ -173,7 +304,7 @@ const IndexPage = () => (
         <div className="resume__job">
           <Resume.Position
             jobTitle="Freelance Web Developer"
-            employers={ [
+            employers={[
               {
                 name: "Uptown Creative Inc",
                 website: "http://www.uptowncreativeinc.com"
@@ -181,7 +312,7 @@ const IndexPage = () => (
               {
                 name: "Others"
               }
-            ] }
+            ]}
             start="Dec 2009"
             stop="Aug 2012"
           />
@@ -199,8 +330,7 @@ const IndexPage = () => (
             the development phase: I received a set of design documents, and
             from there I created semantic HTML5 mark-up using HAML (to insure
             well-formedness), sensible and minified CSS with the SASS compiler,
-            and image spritesheets for anything that couldn't be done without
-            them.
+            and image spritesheets.
           </p>
           <p>
             jQuery was employed heavily on nearly every site for interactive
@@ -214,22 +344,17 @@ const IndexPage = () => (
             for sensible graceful degradation.
           </p>
         </div>
-        <div className="resume__job">
-          <em>
-            I've had a few other co-op positions, but I've omitted them here.
-          </em>
-        </div>
       </section>
       <section id="education">
         <Typography.PageSubtitle>Education</Typography.PageSubtitle>
         <Resume.Position
-          jobTitle="Bachelor of Computer Science"
-          employers={ [
+          jobTitle="Bachelor of Computer Science, Co-op"
+          employers={[
             {
               name: "University of Waterloo",
               website: "https://uwaterloo.ca/"
             }
-          ] }
+          ]}
           start=""
           stop=""
         />
@@ -250,7 +375,13 @@ const IndexPage = () => (
         </Typography.PageSubtitle>
         <p>
           In my spare time, I'm either playing video games, spending time with
-          my wife, or working on software.
+          my wife, or working on software. I'm getting more into home
+          improvement, and have recently gotten into streaming on Twitch.
+        </p>
+        <p className="print-only">
+          Please visit{" "}
+          <a href="https://anthonycameron.com">https://anthonycameron.com</a>{" "}
+          for an overview of some things I've worked on.
         </p>
         <h4>echoplexus</h4>
         <p>
@@ -274,36 +405,34 @@ const IndexPage = () => (
           >
             μv
           </a>{" "}
-          (pronounced mew-vee) is a Rails 4 application that I've recently
-          started working on in hopes of replacing{" "}
+          (pronounced mew-vee) is a Rails 4 application that created in hopes of
+          providing an alternative to{" "}
           <a href="http://xbmc.org/" target="_blank" title="XBMC homepage">
             XBMC
           </a>{" "}
-          as my home streaming system. Right now, it's able to query external
-          datasources (<a
-            href="http://thetvdb.com/"
+          as a home streaming system. Right now, it's able to query external
+          data sources (
+          <a
+            href="https://thetvdb.com/"
             target="_blank"
             title="thetvdb.com homepage"
-                       >
+          >
             thetvdb.com
-                       </a>,{" "}
+          </a>
+          ,{" "}
           <a
-            href="http://www.omdbapi.com/"
+            href="https://www.omdbapi.com/"
             target="_blank"
             title="omdb homepage"
           >
             omdb
-          </a>), gather metadata, download posters, and generate screenshots
-          from video files. It groups episodes by series and displays a
-          Netflix-esque interface, streaming video down to any web client in
-          your home.
+          </a>
+          ), gather metadata, download posters, and generate screenshots from
+          video files. It groups episodes by series and displays a Netflix-esque
+          interface, streaming video down to any web client in your home.
         </p>
         <h4>Others</h4>
-        <p className="print-only">
-          Please visit{" "}
-          <a href="https://anthonycameron.com">https://anthonycameron.com</a>{" "}
-          for an overview of some things I've worked on.
-        </p>
+
         <p>
           I also contribute to OSS (my own and others){" "}
           <a

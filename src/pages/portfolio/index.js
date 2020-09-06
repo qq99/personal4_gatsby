@@ -27,9 +27,9 @@ const IndexPage = ({ data }) => (
     </ReadableSection>
     <ReadableSection>
       <ImageGrid>
-        {data.portfolioImages.edges.map(image => (
+        {data.portfolioImages.edges.map((image) => (
           <AnnotatedImage>
-            <Img sizes={ image.node.sizes } />
+            <Img sizes={image.node.sizes} />
           </AnnotatedImage>
         ))}
       </ImageGrid>

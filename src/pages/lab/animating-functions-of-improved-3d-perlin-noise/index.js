@@ -12,7 +12,7 @@ import Shader2 from "../../../components/Perlin/Shader2";
 import Shader3 from "../../../components/Perlin/Shader3";
 import Shader4 from "../../../components/Perlin/Shader4";
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({data}) => (
   <StandardPage twoColumn>
     <ReadableSection>
       <AnnotatedCanvas caption="Multi-function scene">
@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => (
           fallback={
             <Img
               className="canvas-background-image"
-              sizes={ data.shader1Fallback.sizes }
+              sizes={data.shader1Fallback.sizes}
             />
           }
         />
@@ -66,16 +66,16 @@ const IndexPage = ({ data }) => (
       </p>
       <p>In the old implementation, on a 1GHz machine:</p>
       <ul>
-        <li>Firefox 7 would fail to achieve >30FPS on a 128x128 square.</li>
+        <li>Firefox 7 would fail to achieve &gt;30FPS on a 128x128 square.</li>
         <li>
-          Chrome 15 seemed to achieve >30FPS, or if not, the visual stutter
+          Chrome 15 seemed to achieve &gt;30FPS, or if not, the visual stutter
           wasn't too noticeable.
         </li>
       </ul>
       <p>In the WebGL shader implementation, on a 1GHz machine:</p>
       <ul>
         <li>
-          Firefox 7 easily seems to achieve >30FPS on a 1680x945 rectangle.
+          Firefox 7 easily seems to achieve &gt;30FPS on a 1680x945 rectangle.
         </li>
         <li>
           As it did for the old implementation, Chrome 15 seems to outshine
@@ -127,7 +127,7 @@ const IndexPage = ({ data }) => (
           fallback={
             <Img
               className="canvas-background-image"
-              sizes={ data.shader2Fallback.sizes }
+              sizes={data.shader2Fallback.sizes}
             />
           }
         />
@@ -137,7 +137,7 @@ const IndexPage = ({ data }) => (
           fallback={
             <Img
               className="canvas-background-image"
-              sizes={ data.shader3Fallback.sizes }
+              sizes={data.shader3Fallback.sizes}
             />
           }
         />
@@ -147,13 +147,13 @@ const IndexPage = ({ data }) => (
           fallback={
             <Img
               className="canvas-background-image"
-              sizes={ data.shader4Fallback.sizes }
+              sizes={data.shader4Fallback.sizes}
             />
           }
         />
       </AnnotatedCanvas>
       <AnnotatedImage caption="Jupiter-esque: Old CPU implementation, src RIP">
-        <Img sizes={ data.jupiter.sizes } />
+        <Img sizes={data.jupiter.sizes} />
       </AnnotatedImage>
     </ReadableSection>
   </StandardPage>
@@ -163,19 +163,19 @@ export default IndexPage;
 
 export const query = graphql`
   query PerlinIndexQuery {
-    shader1Fallback: imageSharp(id: { regex: "/img/gpu-perlin1.png/" }) {
+    shader1Fallback: imageSharp(id: {regex: "/img/gpu-perlin1.png/"}) {
       ...LabImageFragment
     }
-    shader2Fallback: imageSharp(id: { regex: "/img/gpu-perlin2.png/" }) {
+    shader2Fallback: imageSharp(id: {regex: "/img/gpu-perlin2.png/"}) {
       ...LabImageFragment
     }
-    shader3Fallback: imageSharp(id: { regex: "/img/gpu-perlin3.png/" }) {
+    shader3Fallback: imageSharp(id: {regex: "/img/gpu-perlin3.png/"}) {
       ...LabImageFragment
     }
-    shader4Fallback: imageSharp(id: { regex: "/img/gpu-perlin4.png/" }) {
+    shader4Fallback: imageSharp(id: {regex: "/img/gpu-perlin4.png/"}) {
       ...LabImageFragment
     }
-    jupiter: imageSharp(id: { regex: "/img/cpu-perlin2.jpg/" }) {
+    jupiter: imageSharp(id: {regex: "/img/cpu-perlin2.jpg/"}) {
       ...LabImageFragment
     }
   }
