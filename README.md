@@ -1,9 +1,11 @@
-Builds anthonycameron.com (not yet, one day)
+Builds anthonycameron.com
 
 # Notes to self
 
 Dev: `gatsby develop`
 Build: `rm -rf .cache; gatsby build; gatsby serve`
+
+If images are not being built, may have to toggle a file change of the graphql :(
 
 Win linux subsytem fix: `execstack -c node_modules/sharp/vendor/lib/librsvg-2.so.2`
 
