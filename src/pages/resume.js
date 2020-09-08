@@ -54,7 +54,7 @@ const IndexPage = () => (
             </a>{" "}
             before Shopify started to move to a custom in-house server-client
             hybrid approach. At this time, most of our work was done in
-            coffeescript.
+            CoffeeScript.
           </p>
           <p>
             My role shifted from frontend closer to backend in this transition:
@@ -151,9 +151,9 @@ const IndexPage = () => (
             intricacies of this new paradigm. I was the liaison for the API
             support team, and helped to explain new API limitations. I also
             instrumented code to find apps that were making legacy API calls so
-            that they could be addressed. Overall, this was a deeply complicated
-            and draining migration; it was often referred to as "open heart
-            surgery" internally.
+            that they could be addressed. This was a deeply complicated and
+            draining migration; it was often referred to as "open heart surgery"
+            internally.
           </p>
           <p>
             Around 2018, I designed and implemented a system to print PDF
