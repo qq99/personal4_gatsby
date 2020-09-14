@@ -65,8 +65,8 @@ const IndexPage = () => (
             mean development time for new features, and greatly simplified bug
             fixes. It was a huge success &ndash;{" "}
             <a
-              href="https://www.shopify.ca/technology/15646068-rebuilding-the-shopify-admin-improving-developer-productivity-by-deleting-28-000-lines-of-javascript"
-              title="Rebuilding the Shopify Admin: Improving Developer Productivity by Deleting 28,000 lines of JavaScript"
+              href="https://engineering.shopify.com/blogs/engineering/rebuilding-the-shopify-admin-improving-developer-productivity-by-deleting-28-000-lines-of-javascript"
+              title="Rebuilding the Shopify Admin: Deleting 28,000 lines of JavaScript to Improve Dev Productivity"
               target="_blank"
             >
               everybody loved it!
