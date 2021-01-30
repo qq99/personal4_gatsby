@@ -30,7 +30,7 @@ const IndexPage = () => (
         <Typography.PageSubtitle>Work Experience</Typography.PageSubtitle>
         <div className="resume__job">
           <Resume.Position
-            jobTitle="Software Developer → Senior Software Developer (L5→L6)"
+            jobTitle="Software Developer → Staff Software Developer (L5→L7)"
             employers={[
               {
                 name: "Shopify",
